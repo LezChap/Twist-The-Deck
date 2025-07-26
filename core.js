@@ -170,7 +170,7 @@ var Decks = [
           TopPenisText: "[tar] and [top] will sit or lie down next to each other ([top]'s choice). They will both begin to masturbate next to each other. They can use their hand to explore or assist the other as long as they don't stop masturbating.  The player who orgasms first wins, and the loser will clean up the mess.",
           TopVaginaText: null,
         },
-        { //card 14
+        { //card 15
           Name: "Oral",
           Copies: 1,
           Requirements: { },
@@ -181,7 +181,7 @@ var Decks = [
           TopPenisText: "[tar] will stand, sit, or lie as directed by [top]. [top] will then give [tar] oral until [tar] reaches climax.",
           TopVaginaText: null,
         },
-        { //card 15
+        { //card 16
           Name: "Rough Oral",
           Copies: 1,
           Requirements: { },
@@ -192,7 +192,7 @@ var Decks = [
           TopPenisText: "[tar] will stand, sit, or lie as directed by [top]. [top] will then fuck [tar]'s face until they cum.",
           TopVaginaText: "[tar] will stand, sit, or lie as directed by [top]. [top] will then ride [tar]'s face until they cum.",
         },
-        { //card 16
+        { //card 17
           Name: "Oral Assistant",
           Copies: 2,
           Requirements: { },
@@ -203,7 +203,7 @@ var Decks = [
           TopPenisText: "Any time someone receives an oral sex task, [tar] will use their mouth, tongue, and lips to assist in the oral task.",
           TopVaginaText: null,
         },
-        { //card 17
+        { //card 18
           Name: "Solo Vibrator",
           Copies: 1,
           Requirements: { Vibrator: true },
@@ -214,7 +214,7 @@ var Decks = [
           TopPenisText: "For the next [rnd] seconds, [tar] will use a vibrator on their genitals.",
           TopVaginaText: null,
         },
-        { //card 18
+        { //card 19
           Name: "Vibrator Assistant",
           Copies: 1,
           Requirements: { Vibrator: true },
@@ -225,7 +225,7 @@ var Decks = [
           TopPenisText: "For the next [rnd] seconds, [top] will use a vibrator on [tar]'s genitals.",
           TopVaginaText: null,
         },
-        { //card 19
+        { //card 20
           Name: "Mock Blowjob",
           Copies: 1,
           Requirements: { Dildo: true },
@@ -236,7 +236,7 @@ var Decks = [
           TopPenisText: "For the next [rnd] seconds, [tar] will use a dildo and act like they are giving it the best blowjob they can for everyone to see.",
           TopVaginaText: null,
         },
-        { //card 20
+        { //card 21
           Name: "Self Butt Plug",
           Copies: 1,
           Requirements: { ButtPlug: true },
@@ -247,7 +247,7 @@ var Decks = [
           TopPenisText: "[tar] will select a butt plug and insert it in their ass in front of everyone.  It will be worn until it gets in the way of another task or the game ends.",
           TopVaginaText: null,
         },
-        { //card 21
+        { //card 22
           Name: "Duo Butt Plug",
           Copies: 1,
           Requirements: { ButtPlug: true },
@@ -258,7 +258,7 @@ var Decks = [
           TopPenisText: "[tar] will kneel and bend over with their ass in the air.  [top] will select a butt plug, lube it, and insert it into [tar]'s asshole. ",
           TopVaginaText: null,
         },
-        { //card 22
+        { //card 23
           Name: "Doggy Style",
           Copies: 1,
           Requirements: { Vagina: true },
@@ -269,7 +269,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
           TopVaginaText: "The [tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
         },
-        { //card 23
+        { //card 24
           Name: "Cum Doggy",
           Copies: 1,
           Requirements: { Vagina: true },
@@ -280,7 +280,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
           TopVaginaText: "The [tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
         },
-        { //card 24
+        { //card 25
           Name: "Doggy Style",
           Copies: 1,
           Requirements: { Penis: true },
@@ -291,7 +291,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel upright.  [top] will kneel and back up onto [tar]'s penis, riding it doggy-style for [rnd] seconds.",
           TopVaginaText: null,
         },
-        { //card 25
+        { //card 26
           Name: "Cum Doggy",
           Copies: 1,
           Requirements: { Penis: true },
@@ -302,7 +302,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel upright.  [top] will kneel and back up onto [tar]'s penis, riding it doggy-style until the [tar] cums.",
           TopVaginaText: null,
         },
-        { //card 26
+        { //card 27
           Name: "Missionary Cum",
           Copies: 1,
           Requirements: { Vagina: true },
@@ -313,7 +313,7 @@ var Decks = [
           TopPenisText: "The [tar] will lay on their back with their legs open.  [top] will fuck [tar] until someone cums.",
           TopVaginaText: null,
         },
-        { //card 27
+        { //card 28
           Name: "Missionary",
           Copies: 1,
           Requirements: { Vagina: true },
@@ -324,7 +324,7 @@ var Decks = [
           TopPenisText: "The [tar] will lay on their back with their legs open.  [top] will fuck [tar] for the next [rnd] seconds.",
           TopVaginaText: null,
         },
-        { //card 28
+        { //card 29
           Name: "Prone Anal Cum",
           Copies: 1,
           Requirements: { },
@@ -335,7 +335,7 @@ var Decks = [
           TopPenisText: "The [tar] will lay on their stomach with their ass raised.  [top] will fuck [tar]'s ass until someone cums.",
           TopVaginaText: null,
         },
-        { //card 29
+        { //card 30
           Name: "Prone Anal",
           Copies: 1,
           Requirements: { },
@@ -346,7 +346,7 @@ var Decks = [
           TopPenisText: "The [tar] will lay on their stomach with their ass raised.  [top] will fuck [tar]'s ass for the next [rnd] seconds.",
           TopVaginaText: null,
         },
-        { //card 30
+        { //card 31
           Name: "Doggy Anal Cum",
           Copies: 1,
           Requirements: { },
@@ -357,7 +357,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel with their ass up.  [top] will fuck [tar]'s ass until someone cums.",
           TopVaginaText: null,
         },
-        { //card 31
+        { //card 32
           Name: "Doggy Anal",
           Copies: 1,
           Requirements: { },
@@ -368,7 +368,7 @@ var Decks = [
           TopPenisText: "The [tar] will kneel with their ass up.  [top] will fuck [tar]'s ass for the next [rnd] seconds.",
           TopVaginaText: null,
         },
-        { //card 32
+        { //card 33
           Name: "Bukakke",
           Copies: 1,
           Requirements: { },
@@ -379,7 +379,7 @@ var Decks = [
           TopPenisText: "Anytime someone gets a task where they may cum, you must be nearby, so that if the person cumming wants to, they may cum on your face. You are to wear this cum until the game ends.  -ILikeBukakke.gif-",
           TopVaginaText: null,
         },        
-        { //card 33
+        { //card 34
           Name: "Center of Attention",
           Copies: 1,
           Requirements: { },
@@ -390,7 +390,7 @@ var Decks = [
           TopPenisText: "[tar] will present themselves to all the players. Everyone may use whatever they want (vibrators, dildos, hands, mouths, tongues, their genitals, or whatever else) to make [tar] the center of attention.  This lasts until [tar] achieves [rnd] orgasms.",
           TopVaginaText: null,
         },
-        { //card 34
+        { //card 35
           Name: "Denial",
           Copies: 1,
           Requirements: { },
@@ -401,7 +401,7 @@ var Decks = [
           TopPenisText: "[tar] is hereby denied being allowed to orgasm until at least [rnd] orgasms are reached by other players.  Any activities which require them to cum must be re-rolled (activities which only one participant must cum are still in play).  If they cum before they are freed from this rule, the count is reset and doubled.",
           TopVaginaText: null,
         },        
-        { //card 35
+        { //card 36
           Name: "New Couple",
           Copies: 1,
           Requirements: { },
@@ -412,7 +412,7 @@ var Decks = [
           TopPenisText: "[tar] and [top] are now 'together'.  They will cuddle and will casually be affectionate to each other (idle caresses, kisses, gropes, etc) until an activity calls for one of them to play with someone else.",
           TopVaginaText: null,
         },        
-        { //card 36
+        { //card 37
           Name: "Sexy Dance",
           Copies: 1,
           Requirements: { },
@@ -423,7 +423,7 @@ var Decks = [
           TopPenisText: "[tar] will pick a song and (try) to do a sexy dance performance to the song for the rest of the players.",
           TopVaginaText: null,
         },                
-        { //card 37
+        { //card 38
           Name: "Lap Dance",
           Copies: 1,
           Requirements: { },
@@ -434,7 +434,7 @@ var Decks = [
           TopPenisText: "[tar] will pick a song and sit down in a chair.  [top] will then proceed to dance to the song for [tar], culminating in a lapdance.",
           TopVaginaText: null,
         },        
-        { //card 38
+        { //card 39
           Name: "Public Toy",
           Copies: 1,
           Requirements: { },
@@ -445,7 +445,7 @@ var Decks = [
           TopPenisText: "[tar] is now a free use sex toy for anyone wanting to use them.  Each player can have up to [rnd] seconds with [tar]'s body to attempt to get themselves off. [top] gets first dibs, but may pass if they wish to enjoy themselves after someone else.  Players may choose to share (with their timers running at the same time, or run [tar] as more of a train, getting their full time for themselves.  This lasts until all players but [tar] have cum, used up their time, or declined to participate.",
           TopVaginaText: null,
         },
-        { //card 38
+        { //card 40
           Name: "Oral Cock Warmer",
           Copies: 1,
           Requirements: { Penis: true },
@@ -456,7 +456,7 @@ var Decks = [
           TopPenisText: "[top] is now a cockwarmer for [tar].  [top] will take [tar]'s cock in their mouth and keep it warm for [tar] until another task requires one of them.",
           TopVaginaText: null,
         },
-        { //card 39
+        { //card 41
           Name: "Anal Cock Warmer",
           Copies: 1,
           Requirements: { Penis: true },
@@ -467,7 +467,7 @@ var Decks = [
           TopPenisText: "[top] is now an anal cockwarmer for [tar].  [top] will sit on [tar's] lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.",
           TopVaginaText: "[top] is now a cockwarmer for [tar].  [top] will sit on [tar's] lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.  [tar] may, at their request, use your vagina for a cockwarmer instead.",
         },
-        { //card 40
+        { //card 42
           Name: "Fluffer",
           Copies: 1,
           Requirements: { },
@@ -476,6 +476,28 @@ var Decks = [
           Random: null,
           Timer: false,
           TopPenisText: "[tar] is now a party fluffer.  Any time someone wants to get aroused, they may request use of [tar]'s mouth and hands to do so. Priority for fluffing goes for those about to engage in game-directed tasks, but fluffing can otherwise be requested by anyone playing at any time. The fluffing lasts for as long as it takes to cause a significant increase in arousal (full hard-on, noticeable increase in wetness, etc).",
+          TopVaginaText: null,
+        },
+        { //card 43
+          Name: "Fuck Machine - Pussy",
+          Copies: 1,
+          Requirements: { Vagina: true, FuckMachine: true },
+          Activities: { Sex: true },
+          Permanent: false,
+          Random: "(120|240|360|480|600)",
+          Timer: true,
+          TopPenisText: "[top] will control a fuck machine fucking [tar]. [top] gets to decide [tar]'s position, the speed and depth of the machine, and the dildo.  [tar] may veto the dildo if it's unreasonably sized.",
+          TopVaginaText: null,
+        },
+        { //card 44
+          Name: "Fuck Machine - Anal",
+          Copies: 1,
+          Requirements: { FuckMachine: true },
+          Activities: { Anal: true },
+          Permanent: false,
+          Random: "(120|240|360|480|600)",
+          Timer: true,
+          TopPenisText: "[top] will control a fuck machine fucking [tar]'s ass. [top] gets to decide [tar]'s position, the speed and depth of the machine, and the dildo. [tar] may veto the dildo if it's unreasonably sized. and any requests for more lube will be granted.",
           TopVaginaText: null,
         },
       ],
@@ -510,7 +532,7 @@ var Decks = [
         },
       ],
     },
-  ];
+];
   
 var CustomCards = getVariable("CustomDeck");
 try {
@@ -543,14 +565,29 @@ Players[#].Rules[...]  --place to save any perm rules they receive
 */
 var GameDeck = [];  //Array holding all the cards to be played with.
 var Requirements = []; //Array holding the requirements from all cards.
-var Activities = []; //Array holding the activiities from all cards.
+var Activities = []; //Array holding the activities from all cards.
+
+function setupGame() {
+  //all the functions and code to get the game ready to play.
+  getPlayerDetails(); //get all player names/data
+  chooseDecks();  //Select the decks to play with
+  makeGameDeck();  //move all cards from active decks into GameDeck Array
+  packReqsAndActivities();  //fill Requirements and Activities Arrays
+  selectRequirements(); //Let the players select what toys and objects they have available.
+  selectActivities(); //Lets the players mark certain activities as hard limits to remove from play.
+}
 
 function getPlayerDetails() {
+  /*
+    Function to get all the player names and what genitals they have.
+  */
   var PlayerCount = getVariable("PlayerCount");
   for (var i = 0; i < PlayerCount; i++){
     Players[i] = {};
     Players[i].Rules = [];
     //Ask each Player for their name and save it
+    showMainText("Player " + (i+1) + ". What is your name?", true);
+    /*  //replaced by showMainText above
     callAction({
       "type":"updateTease",
       "part":"text",
@@ -563,19 +600,20 @@ function getPlayerDetails() {
           "insert":"\n"}
         ]},
       "clear":true}
-    );
+    ); */
     callAction({
       "part":"input",
       "type":"updateTease",
       "inputType":"text",
       "variable":"Name"
       }, true);
-      console.log("Player " + i + " Name Given");
     Players[i].Name = getVariable("Name");
     
     //resets Penis/Vag variables, and asks the player which they have, then saves it.
     setVariable("Penis", false);
     setVariable("Vagina", false);
+    showMainText(Players[i].Name + ", What do you have?");
+    /* //replaced by showMainText above.
     callAction({
       "type":"updateTease",
       "part":"text",
@@ -589,7 +627,8 @@ function getPlayerDetails() {
             "insert":"\n"
           }
         ]}
-      });
+      }); 
+    */
     callAction({
       "type":"updateTease",
       "part":"input",
@@ -613,19 +652,8 @@ function getPlayerDetails() {
     var vag = getVariable("Vagina");
     if (penis) {Players[i].Penis = true;}
     if (vag) {Players[i].Vagina = true;}
-    callAction({
-      "type":"updateTease",
-      "part":"text",
-      "location":"main",
-      "delay":"none",
-      "text":{
-        "ops":[{
-          "attributes":{"align":"center"},
-          "insert":"\n"
-        }]
-      },
-      "clear":true
-    });
+    
+    clearMainText();
   }
   /* //Debugging Code
   for (var i = 1; i <= Players.length; i++) {
@@ -636,90 +664,281 @@ function getPlayerDetails() {
   }*/
 }
 
-function getRandom(input) {
-  //Processes the numbers through Xtoys for randomization and such
-  setVariable("num", input);
-  callAction({
-    "type":"updateJob",
-    "job":"ProcessNumber",
-    "action":"start",
-    "restart":true});
-  return getVariable("num");
-}
-
-function chooseDecks() {  
+function chooseDecks() { 
+  /*
+    Function which gets the players to choice which
+    decks to play with.
+  */
   var Deck = "InProgress";
   
-  while (Deck !== "Complete") {    
+  while (Deck !== "Completed") {    
     displayDecks(Deck);
     
-    var buttonsText = "";
-    for (i = 0; i < Decks.length; i++) {
+    var buttonObj = [];
+    for (var i = 0; i < Decks.length; i++) {
       if (Decks[i] && typeof Decks[i].Name === "string") {
-        buttonsText = buttonsText + '{"name":"' + Decks[i].Name + '",' +
-            '"action":null,"setVariable":true,"variable":"Deck",' +
-            '"variableValue":"' + i + '"},';
+        buttonObj[i]= {
+          Name: Decks[i].Name,
+          Value: i
+        };
       }
     }
+    buttonObj.push({Name: "Finished", Value: "Completed"});
     
-    var jsonString = '{"type":"updateTease","part":"input","inputType":"buttons","buttons":[' +
-    buttonsText + 
-    '{"name":"Finished","action":null,"setVariable":true,"variable":"Deck",' +
-    '"variableValue":"Completed"}]}';
-    callAction(JSON.parse(jsonString), true);
-    console.log("ran this code");
-    Deck = getVariable("Deck");
+    Deck = showChoiceButtons(buttonObj, "Deck");
     updateDeckChoice(Deck);
     
+    var found = false;
+    for (var i = 0; i < Decks.length; i++) {
+      if (Decks[i].Active) {
+        found = true;
+        break;
+      }
+    }
+    if (Deck == "Completed" && !found) Deck = "In Progress";
   }
 }
 
 function updateDeckChoice(DeckNum) {
   DeckNum = Number(DeckNum);
-  if (Number.isInteger(DeckNum)) {
+  if (!isNaN(DeckNum)) {
     Decks[DeckNum].Active = !Decks[DeckNum].Active;
-  }
+  } 
 }
 
 function displayDecks(deckDescription) {
+  /*
+    Displays the Active Deck and other deck information
+    to the canvas.
+  */
   var found = false;
   var DeckList = "Active Decks: ";
-  for (i = 0; i < Decks.length; i++) {
+  for (var i = 0; i < Decks.length; i++) {
     if (Decks[i].Active) {
       found = true;
       DeckList = DeckList + Decks[i].Name + ", ";
     }
-    DeckList = DeckList.slice(0, -2);
   }
+  DeckList = DeckList.slice(0, -2);
+  
   canvas.clearRect(0, 0, 1500, 1000);
-  canvas.font = "48px serif";
+  canvas.font = "64px serif";
   canvas.textAlign = "center";
   canvas.fillStyle = "white";
-  //canvas.textBaseline = "top"; 
+  canvas.textBaseline = "top"; 
   if (found) {  
-    console.log("decks found");
-    canvas.fillText(DeckList, 1500/2, 1000/2);
+    wrapText(DeckList, 1500/2, 150, 1450, 68);
+    showStatusText(DeckList);
   } else {
-    console.log("no decks");
-    canvas.fillText("No Decks Chosen", 1500/2, 1000/2);
+    canvas.fillText("No Decks Chosen", 1500/2, 150);
+    showStatusText("No Decks Chosen.");
   }
-  canvas.font = "24px serif";
   canvas.textBaseline = "middle";
-  if (deckDescription) {
-    wrapText(Decks[deckDescription].Description, 1500/2, 1000/2, 1450, 28);
+  var deckNum = Number(deckDescription);
+  if (!isNaN(deckNum)) {
+    canvas.font = "48px serif";
+    canvas.fillText(Decks[deckNum].Name, 1500/2, 1000/2-52);
+    canvas.font = "36px serif";
+    wrapText(Decks[deckNum].Description, 1500/2, 1000/2, 1450, 40);
+    showMainText(Decks[deckNum].Description);
   } else {
-    wrapText("Please choose a deck to continue.", 1500/2, 1000/2, 1450, 28);
+    canvas.font = "36px serif";
+    wrapText("Please choose a deck to continue.", 1500/2, 1000/2, 1450, 40);
+    showMainText("Please choose a deck to continue.");
   }
 }
 
+function makeGameDeck() {
+  /*
+    Fills the GameDeck with cards from the active decks.
+  */
+  for (var i = 0; i < Decks.length; i++) {
+    if (Decks[i].Active) {
+      var Cards = Decks[i].Cards;
+      for (var c = 0; c < Cards.length; c++) {
+        if (Cards[c]) {
+          var copies = Cards[c].Copies || 1;
+          for (var count = 0; count < copies; count++) {
+            GameDeck.push(Cards[c]);
+          }
+        } 
+      }
+    }
+  }
+}
+
+function packReqsAndActivities() {
+  /*
+    Goes through the game deck and places all the
+    Requirements and Activities into their respective
+    arrays, using TitleCase to attempt to prevent duplicates.
+  */
+  for (var i = 0; i < GameDeck.length; i++) {
+    if (GameDeck[i].Requirements) {
+      for (var key in GameDeck[i].Requirements) {
+        if (GameDeck[i].Requirements.hasOwnProperty(key)) {
+          var str = toTitleCase(key);
+          var fIndex = findIndex(Requirements, "Name", str);
+          if (!fIndex[0]) {
+            Requirements.push({ Name: str });
+          }
+        }
+      }
+    }
+    
+    if (GameDeck[i].Activities) {
+      for (var key in GameDeck[i].Activities) {
+        if (GameDeck[i].Activities.hasOwnProperty(key)) {
+          var str = toTitleCase(key);
+          var fIndex = findIndex(Activities, "Name", str);
+          if (!fIndex[0]) {
+            Activities.push({ Name: str, Active: true });
+          }
+        }
+      }
+    }
+  }
+  
+  var fIndex = findIndex(Requirements, "Name", "Penis");
+  if (fIndex[1] !== -1) {
+    Requirements.splice(fIndex[1], 1);
+  }    
+  fIndex = findIndex(Requirements, "Name", "Vagina");
+  if (fIndex[1] !== -1) {
+    Requirements.splice(fIndex[1], 1);
+  }
+}
+
+function selectRequirements() {
+  var buttonObj = [];
+  for (var i = 0; i < Requirements.length; i++) {
+    buttonObj[i] = {
+      Name: Requirements[i].Name,
+      Value: Requirements[i].Name
+    };
+  }
+  buttonObj.push({ Name: "Finished", Value: "Completed" });
+  var req = "";
+  while (req !== "Completed") {
+    var found = false;
+    var ReqText = "Available Toys: ";
+    for (var i = 0; i < Requirements.length; i++) {
+      if (Requirements[i].Active) {
+        found = true;
+        ReqText = ReqText + Requirements[i].Name + ", ";
+      }
+    }
+    ReqText = ReqText.slice(0, -2);
+    
+    canvas.clearRect(0, 0, 1500, 1000);
+    canvas.font = "64px serif";
+    canvas.textAlign = "center";
+    canvas.fillStyle = "white";
+    canvas.textBaseline = "top"; 
+    if (found) {
+      wrapText(ReqText, 1500/2, 150, 1450, 68);
+      showMainText(ReqText, true);
+    } else {
+      wrapText("You're telling me you don't have any toys?!?", 1500/2, 150, 1450, 68);
+      showMainText("You're telling me you don't have any toys?!?", true);
+    }
+    showStatusText("Please select the toys and objects you have available:");
+    req = showChoiceButtons(buttonObj, "req");
+    
+    var fIndex = findIndex(Requirements, "Name", req);
+    if (req !== "Completed" && fIndex[0] && fIndex[1] >= 0) {
+      Requirements[fIndex[1]].Active = !Requirements[fIndex[1]].Active;
+    } 
+  }  
+}
+
+function selectActivities() {
+  var buttonObj = [];
+  for (var i = 0; i < Activities.length; i++) {
+    buttonObj[i] = {
+      Name: Activities[i].Name,
+      Value: Activities[i].Name
+    };
+  }
+  buttonObj.push({ Name: "Finished", Value: "Completed" });
+  var acts = "";
+  while (acts !== "Completed") {
+    var found = false;
+    var ActText = "Allowed Activities: ";
+    var LimitsText = "Hard Limit List: ";
+    for (var i = 0; i < Activities.length; i++) {
+      if (Activities[i].Active) {
+        found = true;
+        ActText = ActText + Activities[i].Name + ", ";
+      } else {
+        LimitsText = LimitsText + Activities[i].Name + ", ";
+      }
+    }
+    ActText = ActText.slice(0, -2);
+    LimitsText = LimitsText.slice(0, -2);
+    
+    
+    canvas.clearRect(0, 0, 1500, 1000);
+    canvas.font = "48px serif";
+    canvas.textAlign = "center";
+    canvas.fillStyle = "white";
+    canvas.textBaseline = "top"; 
+    if (found) {
+      wrapText(ActText, 1500/2, 150, 1450, 50);
+      showMainText(ActText, true);
+    } else {
+      wrapText("You haven't selected any allowed activities!", 1500/2, 150, 1450, 50);
+      showMainText("You haven't selected any allowed activities!", true);
+    }
+    
+    if (LimitsText == "Hard Limits List") {
+      LimitsText = LimitsText + ": None";
+      wrapText(LimitsText, 1500/2, 700, 1450, 50);
+      showMainText(LimitsText, false);
+    } else {
+      wrapText(LimitsText, 1500/2, 700, 1450, 50);
+      showMainText(LimitsText, false);
+    }
+    
+    showStatusText("Please select the activities you want to do:");
+    acts = showChoiceButtons(buttonObj, "act");
+    
+    var fIndex = findIndex(Activities, "Name", acts);
+    if (acts !== "Completed" && fIndex[0] && fIndex[1] >= 0) {
+      Activities[fIndex[1]].Active = !Activities[fIndex[1]].Active;
+    } 
+  }  
+}
+
+function findIndex(Array, Key, Value) {
+  /*
+    Returns true, index if an object in the Array contains the Key: Value pair.
+  */
+  var found = false;
+  var index = -1;
+  for (var i = 0; i < Array.length; i++) {
+      if (Array[i][Key] === Value) {
+          found = true;
+          index = i;
+          break;
+      }
+  }
+  return [found, index];
+}
+
 function wrapText(text, x, y, maxWidth, lineHeight) {
+  /*
+    Writes the text variable to the canvas at the x and y
+    coordinates, wrapping it at the maxWidth pixels with 
+    lineHeight line spaceing.
+  */
   var words = text.split(' ');
   var line = '';
   var testLine = '';
   var testWidth = 0;
   var currentY = y;
 
-  for (n = 0; n < words.length; n++) {
+  for (var n = 0; n < words.length; n++) {
     testLine = line + words[n] + ' ';
     testWidth = canvas.measureText(testLine).width;
     if (testWidth > maxWidth && n > 0) {
@@ -733,62 +952,28 @@ function wrapText(text, x, y, maxWidth, lineHeight) {
   canvas.fillText(line, x, currentY);
 }
 
-function makeGameDeck() {
-  for (i = 0; i < Decks.length; i++) {
-    if (Decks[i].Active) {
-      var Cards = Decks[i].Cards;
-      for (c = 0; c < Cards.length; c++) {
-        if (Cards[c]) {
-          var copies = Cards[c].Copies || 1;
-          for (count = 0; count < copies; count++) {
-            GameDeck.push(Cards[c]);
-          }
-        } 
-      }
-    }
-  }
-  packReqsAndActivities();
-}
-
-function packReqsAndActivities() {
-  //Requirements, Activities are the array names.
-  for (i = 0; i < GameDeck.length; i++) {
-    for (key in GameDeck[i].Requirements) {
-      if (GameDeck[i].hasOwnProperty(key)) {
-        var str = toTitleCase(key);
-        if (Requirements.indexOf(str) === -1) {
-          Requirements.push(str);
-        }
-      }
-    }
-    
-    var index = Requirements.indexOf("Penis");
-    if (index !== -1) {
-      Requirements.splice(index, 1);
-    }    
-    index = Requirements.indexOf("Vagina");
-    if (index !== -1) {
-      Requirements.splice(index, 1);
-    }
-    
-    for (key in GameDeck[i].Activities) {
-      if (GameDeck[i].hasOwnProperty(key)) {
-        var str = toTitleCase(key);
-        if (Activities.indexOf(str) === -1) {
-          Activities.push(str);
-        }
-      }
-    }
-  }
-}
-
 function toTitleCase(str) {
   return str.split(' ').map(function(word) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   }).join(' ');
 }
 
+function getRandom(input) {
+  //Processes the numbers through Xtoys for randomization and such
+  setVariable("num", input);
+  callAction({
+    "type":"updateJob",
+    "job":"ProcessNumber",
+    "action":"start",
+    "restart":true});
+  return getVariable("num");
+}
+
 function replacePlaceholders(str, tar, top, rnd) {
+  /*
+    Returns a string where the input string (str) is processed to replace
+    "[tar]", "[top]", and "[rnd]" with their respective input strings.  
+  */
   tar = (typeof tar !== 'undefined') ? tar : 'defaultTarget';
   top = (typeof top !== 'undefined') ? top : 'defaultTop';
   rnd = (typeof rnd !== 'undefined') ? rnd : 'defaultNumber';
@@ -799,8 +984,99 @@ function replacePlaceholders(str, tar, top, rnd) {
     .replace(/\[rnd\]/g, rnd);
 }
 
+function showStatusText(text) {
+  /*
+    Displays "text" in the Status Text area.
+    This call removes text from previous status lines.
+  */
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"text",
+    "location":"status",
+    "statusText":text};
+    
+  callAction(jsonObj);
+}
+
+function showMainText(text, clearBool) {
+  /* 
+    Displays "text" in the Main Text area.
+    'clearBool' to remove previous Main Text entries.
+  */
+  clearBool = clearBool || "false";
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"text",
+    "location":"main",
+    "delay":"none",
+    "text":{
+      "ops":[{
+        "insert":text
+      },{
+        "attributes":{
+          "align":"center"
+        },
+        "insert":"\n"
+      }]
+    },
+    "clear":clearBool};
+    
+  callAction(jsonObj);
+}
+
+function clearMainText() {
+      callAction({
+      "type":"updateTease",
+      "part":"text",
+      "location":"main",
+      "delay":"none",
+      "text":{
+        "ops":[{
+          "attributes":{"align":"center"},
+          "insert":"\n"
+        }]
+      },
+      "clear":true
+    });
+}
+
+function showChoiceButtons(buttonObj, varName) {
+  /*
+    buttonObj = [
+      {  //first button
+        Name: "Button One"
+        Value: "set varName to this Value"
+      },{  //second button
+        Name: ...
+        Value: ...
+      }
+    varName - string of variable name to use in XToys.
+    
+    Creates a series of buttons using the above inputs in the main
+    area of XToys. Waits for user to press a button, and returns the
+    varName's value from XToys.
+  */
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"input",
+    "inputType":"buttons",
+    "buttons":[]
+  };
+  for (var i = 0; i < buttonObj.length; i ++) {
+    jsonObj.buttons[i] = {
+      "name":buttonObj[i].Name,
+      "action":null,
+      "setVariable":true,
+      "variable":varName,
+      "variableValue":buttonObj[i].Value
+    };
+  }
+  
+  callAction(jsonObj, true);
+  return getVariable(varName);
+}
+
 /* TODO:
-  --Display all the Requirements and Activities and let the player add/remove them.
   --Remove cards from "GameDeck" that don't comply with above selections
   --Spin bottle, draw Cards, handle Secret option, redraw button. start timer
   --Track Permanent Rules, option to remove them when finished, roll/timer if needed.
