@@ -6,9 +6,9 @@ var Decks = [
         { //card 1
           Name: "Kiss",
           Copies: 1,  //How many copies of the card to put in the playing deck
-          Requirements: { },  //what toys this card requires 
+          Requirements: [ ],  //what toys this card requires 
                               //(also if target needs a Penis/Vagina = true)
-          Activities: { Kissing: true },  //activities the card contains
+          Activities: [ "Kissing" ],  //activities the card contains
           Permanent: false,  //is card a permanent rule
           Random: "(30|60)",  //Uses a number, can be random using Xtoy's format
           Timer: true,  //Is random a timer?
@@ -30,8 +30,8 @@ var Decks = [
         { //card 2
           Name: "Grope",
           Copies: 1,
-          Requirements: { },
-          Activities: { Groping: true },
+          Requirements: [ ],
+          Activities: [ "Groping" ],
           Permanent: false,
           Random: "(30|60)",
           Timer: true,
@@ -41,8 +41,8 @@ var Decks = [
         { //card 3
           Name: "Suckle",
           Copies: 1,
-          Requirements: { },
-          Activities: { Kissing: true },
+          Requirements: [ ],
+          Activities: [ "Kissing" ],
           Permanent: false,
           Random: "(30|60)",
           Timer: true,
@@ -52,8 +52,8 @@ var Decks = [
         { //card 4
           Name: "Nibble",
           Copies: 1,
-          Requirements: { },
-          Activities: { Kissing: true },
+          Requirements: [ ],
+          Activities: [ "Kissing" ],
           Permanent: false,
           Random: "(30|60)",
           Timer: true,
@@ -63,8 +63,8 @@ var Decks = [
         { //card 5
           Name: "Oral Tease",
           Copies: 1,
-          Requirements: { },
-          Activities: { Kissing: true, Groping: true },
+          Requirements: [ ],
+          Activities: [ "Kissing", "Groping" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -74,8 +74,8 @@ var Decks = [
         { //card 6
           Name: "Dry Grind",
           Copies: 1,
-          Requirements: { },
-          Activities: { Grinding: true },
+          Requirements: [ ],
+          Activities: [ "Grinding" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -85,8 +85,8 @@ var Decks = [
         { //card 7
           Name: "Chest Grind",
           Copies: 1,
-          Requirements: { },
-          Activities: { Grinding: true },
+          Requirements: [ ],
+          Activities: [ "Grinding" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -96,8 +96,8 @@ var Decks = [
         { //card 8
           Name: "Minutes in Heaven",
           Copies: 1,
-          Requirements: { },
-          Activities: { Kissing: true, Groping: true, Grinding: true },
+          Requirements: [ ],
+          Activities: [ "Kissing", "Groping", "Grinding" ],
           Permanent: false,
           Random: "(120|240|360|420)",
           Timer: true,
@@ -107,8 +107,8 @@ var Decks = [
         { //card 9
           Name: "Handjob",
           Copies: 1,
-          Requirements: { Penis: true },
-          Activities: { Groping: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Groping" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -118,8 +118,8 @@ var Decks = [
         { //card 10
           Name: "Vaginal Fingering",
           Copies: 1,
-          Requirements: { Vagina: true },
-          Activities: { Groping: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Groping" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -129,8 +129,8 @@ var Decks = [
         { //card 11
           Name: "Blowjob",
           Copies: 1,
-          Requirements: { Penis: true},
-          Activities: { Oral: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -140,8 +140,8 @@ var Decks = [
         { //card 12
           Name: "Eating at the Y",
           Copies: 1,
-          Requirements: { Vagina: true},
-          Activities: { Oral: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: "(60|90|120)",
           Timer: true,
@@ -151,8 +151,8 @@ var Decks = [
         { //card 13
           Name: "69.  Nice.",
           Copies: 1,
-          Requirements: { },
-          Activities: { Oral: true },
+          Requirements: [ ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: "120",
           Timer: true,
@@ -162,8 +162,8 @@ var Decks = [
         { //card 14
           Name: "Mutual Masturbation",
           Copies: 1,
-          Requirements: { },
-          Activities: { Masturbation: true },
+          Requirements: [ ],
+          Activities: [ "Masturbation" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -173,8 +173,8 @@ var Decks = [
         { //card 15
           Name: "Oral",
           Copies: 1,
-          Requirements: { },
-          Activities: { Oral: true },
+          Requirements: [ ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -184,8 +184,8 @@ var Decks = [
         { //card 16
           Name: "Rough Oral",
           Copies: 1,
-          Requirements: { },
-          Activities: { Oral: true },
+          Requirements: [ ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -195,8 +195,8 @@ var Decks = [
         { //card 17
           Name: "Oral Assistant",
           Copies: 2,
-          Requirements: { },
-          Activities: { Oral: true },
+          Requirements: [ ],
+          Activities: [ "Oral" ],
           Permanent: true,
           Random: null,
           Timer: false,
@@ -206,8 +206,8 @@ var Decks = [
         { //card 18
           Name: "Solo Vibrator",
           Copies: 1,
-          Requirements: { Vibrator: true },
-          Activities: { Masturbation: true },
+          Requirements: [ "Vibrator" ],
+          Activities: [ "Masturbation" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -217,8 +217,8 @@ var Decks = [
         { //card 19
           Name: "Vibrator Assistant",
           Copies: 1,
-          Requirements: { Vibrator: true },
-          Activities: { Masturbation: true },
+          Requirements: [ "Vibrator" ],
+          Activities: [ "Masturbation" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -228,8 +228,8 @@ var Decks = [
         { //card 20
           Name: "Mock Blowjob",
           Copies: 1,
-          Requirements: { Dildo: true },
-          Activities: { Oral: true },
+          Requirements: [ "Dildo" ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -239,8 +239,8 @@ var Decks = [
         { //card 21
           Name: "Self Butt Plug",
           Copies: 1,
-          Requirements: { ButtPlug: true },
-          Activities: { Anal: true },
+          Requirements: [ "ButtPlug" ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -250,8 +250,8 @@ var Decks = [
         { //card 22
           Name: "Duo Butt Plug",
           Copies: 1,
-          Requirements: { ButtPlug: true },
-          Activities: { Anal: true },
+          Requirements: [ "ButtPlug" ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -261,8 +261,8 @@ var Decks = [
         { //card 23
           Name: "Doggy Style",
           Copies: 1,
-          Requirements: { Vagina: true },
-          Activities: { Sex: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -272,8 +272,8 @@ var Decks = [
         { //card 24
           Name: "Cum Doggy",
           Copies: 1,
-          Requirements: { Vagina: true },
-          Activities: { Sex: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -283,8 +283,8 @@ var Decks = [
         { //card 25
           Name: "Doggy Style",
           Copies: 1,
-          Requirements: { Penis: true },
-          Activities: { Sex: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -294,8 +294,8 @@ var Decks = [
         { //card 26
           Name: "Cum Doggy",
           Copies: 1,
-          Requirements: { Penis: true },
-          Activities: { Sex: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -305,8 +305,8 @@ var Decks = [
         { //card 27
           Name: "Missionary Cum",
           Copies: 1,
-          Requirements: { Vagina: true },
-          Activities: { Sex: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -316,8 +316,8 @@ var Decks = [
         { //card 28
           Name: "Missionary",
           Copies: 1,
-          Requirements: { Vagina: true },
-          Activities: { Sex: true },
+          Requirements: [ "Vagina" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
@@ -327,8 +327,8 @@ var Decks = [
         { //card 29
           Name: "Prone Anal Cum",
           Copies: 1,
-          Requirements: { },
-          Activities: { Anal: true },
+          Requirements: [ ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -338,8 +338,8 @@ var Decks = [
         { //card 30
           Name: "Prone Anal",
           Copies: 1,
-          Requirements: { },
-          Activities: { Anal: true },
+          Requirements: [ ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: "(120|240|360)",
           Timer: true,
@@ -349,8 +349,8 @@ var Decks = [
         { //card 31
           Name: "Doggy Anal Cum",
           Copies: 1,
-          Requirements: { },
-          Activities: { Anal: true },
+          Requirements: [ ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -360,8 +360,8 @@ var Decks = [
         { //card 32
           Name: "Doggy Anal",
           Copies: 1,
-          Requirements: { },
-          Activities: { Anal: true },
+          Requirements: [ ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: "(120|240|360)",
           Timer: true,
@@ -371,8 +371,8 @@ var Decks = [
         { //card 33
           Name: "Bukakke",
           Copies: 1,
-          Requirements: { },
-          Activities: { Facial: true },
+          Requirements: [ ],
+          Activities: [ "Facial" ],
           Permanent: true,
           Random: null,
           Timer: false,
@@ -382,8 +382,8 @@ var Decks = [
         { //card 34
           Name: "Center of Attention",
           Copies: 1,
-          Requirements: { },
-          Activities: { Oral: true, Groping: true },
+          Requirements: [ ],
+          Activities: [ "Oral", "Groping" ],
           Permanent: false,
           Random: "(4-8)",
           Timer: false,
@@ -393,8 +393,8 @@ var Decks = [
         { //card 35
           Name: "Denial",
           Copies: 1,
-          Requirements: { },
-          Activities: { Denial: true },
+          Requirements: [ ],
+          Activities: [ "Denial" ],
           Permanent: true,
           Random: "(5-10)",
           Timer: false,
@@ -404,8 +404,8 @@ var Decks = [
         { //card 36
           Name: "New Couple",
           Copies: 1,
-          Requirements: { },
-          Activities: { Groping: true },
+          Requirements: [ ],
+          Activities: [ "Groping" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -415,8 +415,8 @@ var Decks = [
         { //card 37
           Name: "Sexy Dance",
           Copies: 1,
-          Requirements: { },
-          Activities: { Dancing: true },
+          Requirements: [ ],
+          Activities: [ "Dancing" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -426,8 +426,8 @@ var Decks = [
         { //card 38
           Name: "Lap Dance",
           Copies: 1,
-          Requirements: { },
-          Activities: { Dancing: true },
+          Requirements: [ ],
+          Activities: [ "Dancing" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -437,8 +437,8 @@ var Decks = [
         { //card 39
           Name: "Public Toy",
           Copies: 1,
-          Requirements: { },
-          Activities: { Sex: true, Oral: true },
+          Requirements: [ ],
+          Activities: [ "Sex", "Oral"],
           Permanent: false,
           Random: "(300|600|900)",
           Timer: true,
@@ -448,8 +448,8 @@ var Decks = [
         { //card 40
           Name: "Oral Cock Warmer",
           Copies: 1,
-          Requirements: { Penis: true },
-          Activities: { Oral: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Oral" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -459,8 +459,8 @@ var Decks = [
         { //card 41
           Name: "Anal Cock Warmer",
           Copies: 1,
-          Requirements: { Penis: true },
-          Activities: { Anal: true },
+          Requirements: [ "Penis" ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: null,
           Timer: false,
@@ -470,8 +470,8 @@ var Decks = [
         { //card 42
           Name: "Fluffer",
           Copies: 1,
-          Requirements: { },
-          Activities: { Oral: true },
+          Requirements: [ ],
+          Activities: [ "Oral" ],
           Permanent: true,
           Random: null,
           Timer: false,
@@ -481,8 +481,8 @@ var Decks = [
         { //card 43
           Name: "Fuck Machine - Pussy",
           Copies: 1,
-          Requirements: { Vagina: true, FuckMachine: true },
-          Activities: { Sex: true },
+          Requirements: [ "Vagina", "FuckMachine" ],
+          Activities: [ "Sex" ],
           Permanent: false,
           Random: "(120|240|360|480|600)",
           Timer: true,
@@ -492,8 +492,8 @@ var Decks = [
         { //card 44
           Name: "Fuck Machine - Anal",
           Copies: 1,
-          Requirements: { FuckMachine: true },
-          Activities: { Anal: true },
+          Requirements: [ "FuckMachine" ],
+          Activities: [ "Anal" ],
           Permanent: false,
           Random: "(120|240|360|480|600)",
           Timer: true,
@@ -509,9 +509,9 @@ var Decks = [
         { //card 1
           Name: "Kiss",
           Copies: 1,  //How many copies of the card to put in the playing deck
-          Requirements: { },  //what toys this card requires 
-                              //(also if target needs a Penis/Vagina = true)
-          Activities: { Kissing: true },  //activities the card contains
+          Requirements: [ ],  //Array  list of what toys this card requires 
+                              //(also if target needs a Penis/Vagina)
+          Activities: [ "Kissing" ],  //array list of activities the card contains
           Permanent: false,  //is card a permanent rule
           Random: "(30|60)",  //Uses a number, can be random using Xtoy's format
           Timer: true,  //Is random a timer?
@@ -575,6 +575,7 @@ function setupGame() {
   packReqsAndActivities();  //fill Requirements and Activities Arrays
   selectRequirements(); //Let the players select what toys and objects they have available.
   selectActivities(); //Lets the players mark certain activities as hard limits to remove from play.
+  remvoeFilteredCards(); //remove the cards blacklisted from the above inputs.
 }
 
 function getPlayerDetails() {
@@ -774,27 +775,25 @@ function packReqsAndActivities() {
     arrays, using TitleCase to attempt to prevent duplicates.
   */
   for (var i = 0; i < GameDeck.length; i++) {
-    if (GameDeck[i].Requirements) {
-      for (var key in GameDeck[i].Requirements) {
-        if (GameDeck[i].Requirements.hasOwnProperty(key)) {
-          var str = toTitleCase(key);
-          var fIndex = findIndex(Requirements, "Name", str);
-          if (!fIndex[0]) {
-            Requirements.push({ Name: str });
-          }
+    var card = GameDeck[i];
+    if (card.Requirements) {
+      for (var k = 0; k < card.Requirements.length; k++) {
+        var str = toTitleCase(card.Requirements[k]);
+        var fIndex = findIndex(Requirements, "Name", str);
+        if (!fIndex[0]) {
+          Requirements.push({ Name: str });
         }
       }
     }
     
-    if (GameDeck[i].Activities) {
-      for (var key in GameDeck[i].Activities) {
-        if (GameDeck[i].Activities.hasOwnProperty(key)) {
-          var str = toTitleCase(key);
-          var fIndex = findIndex(Activities, "Name", str);
-          if (!fIndex[0]) {
-            Activities.push({ Name: str, Active: true });
-          }
+    if (card.Activities) {
+      for (var k = 0; k < card.Activities.length; k++) {
+        var str = toTitleCase(card.Activities[k]);
+        var fIndex = findIndex(Activities, "Name", str);
+        if (!fIndex[0]) {
+          Activities.push({ Name: str, Active: true });
         }
+      
       }
     }
   }
@@ -901,13 +900,58 @@ function selectActivities() {
     }
     
     showStatusText("Please select the activities you want to do:");
-    acts = showChoiceButtons(buttonObj, "act");
+    acts = showChoiceButtons(buttonObj, "acts");
     
     var fIndex = findIndex(Activities, "Name", acts);
     if (acts !== "Completed" && fIndex[0] && fIndex[1] >= 0) {
       Activities[fIndex[1]].Active = !Activities[fIndex[1]].Active;
     } 
   }  
+}
+
+function remvoeFilteredCards() {
+  var inactiveActs = {};
+  for (var j = 0; j < Activities.length; j++) {
+    var act = Activities[j];
+    if (!act.Active) {
+      inactiveActs[act.Name] = true;
+    }
+  }
+  var inactiveReqs = {};
+  for (var j = 0; j < Requirements.length; j++) {
+    var req = Requirements[j];
+    if (!req.Active) {
+      inactiveReqs[req.Name] = true;
+    }
+  }
+
+  for (var i = GameDeck.length - 1; i >= 0; i--) {
+    var card = GameDeck[i];
+    var remove = false;
+    
+    if (card && card.Activities) {
+      for (var k = 0; k < card.Activities.length; k++) {
+        var activityName = toTitleCase(card.Activities[k]);
+        if (inactiveActs.hasOwnProperty(activityName)) {
+          remove = true;
+          break;
+        }
+      }
+    }
+    if (card && card.Requirements) {
+      for (var k = 0; k < card.Requirements.length; k++) {
+        var requirementName = toTitleCase(card.Requirements[k]);
+        if (inactiveReqs.hasOwnProperty(requirementName)) {
+          remove = true;
+          break;
+        }
+      }
+    }
+
+    if (remove) {
+      GameDeck.splice(i, 1);
+    }
+  }
 }
 
 function findIndex(Array, Key, Value) {
@@ -1003,7 +1047,7 @@ function showMainText(text, clearBool) {
     Displays "text" in the Main Text area.
     'clearBool' to remove previous Main Text entries.
   */
-  clearBool = clearBool || "false";
+  clearBool = clearBool || false;
   var jsonObj = {
     "type":"updateTease",
     "part":"text",
@@ -1077,7 +1121,7 @@ function showChoiceButtons(buttonObj, varName) {
 }
 
 /* TODO:
-  --Remove cards from "GameDeck" that don't comply with above selections
   --Spin bottle, draw Cards, handle Secret option, redraw button. start timer
   --Track Permanent Rules, option to remove them when finished, roll/timer if needed.
+  --Fix Canvas Shit
 */
