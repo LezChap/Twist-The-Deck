@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "Kiss",
+        "Copies": 1,
+        "_comment1": "Copies is how many of this card will be placed in the play deck.",
+        "Requirements": [],
+        "_comment2": "Requirements: Array List, Include any required objects/toys, or if the",
+        "_comment3": "target player needs a Penis or Vagina via 'Penis':true",
+        "Activities": ["Kissing"],
+        "_comment4": "Array List of any of the activities involved in the card (for hard limits)",
+        "Permanent": false,
+        "_comment5": "is this card a 'rule' that lasts multiple rounds?",
+        "Random": "(30|60)",
+        "_comment6": "Use a number, can be random, uses Xtoys number syntax",
+        "Timer": true,
+        "_comment7": "Is this number used for a timer?",
+        "Secret": false,
+        "SecretText": null,
+        "_comment8": "Should this card's action be a secret to the target?  If so, display",
+        "_comment9": "the SecretText and wait before displaying the rest of the text below.",
+        "_comment0": "The text below can vary if the 'top' player performing the act has a ",
+        "_commenta": "Penis or Vagina.  [tar] and [top] will be replaced with the appropriate",
+        "_commentb": "player's names.  [rnd] will be replaced with the number used from above.",
+        "TopPenisText": "[top] will approach [tar] and kiss them for [rnd] seconds.",
+        "TopVaginaText": null
+    },
+    {
+        "Name": "Grope",
+        "Copies": 1,
+        "Requirements": [],
+        "Activities": ["Groping"],
+        "Permanent": false,
+        "Random": "(30|60)",
+        "Timer": true,
+        "TopPenisText": "[top] will approach [tar] and grope them for [rnd] seconds.",
+        "TopVaginaText": null
+    }
+]
