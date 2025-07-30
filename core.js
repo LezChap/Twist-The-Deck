@@ -537,9 +537,13 @@ var Decks = [
 var CustomCards = getVariable("CustomDeck");
 try {
   CustomCards = JSON.parse(CustomCards);
-  for (var key in CustomCards) {
-    if (CustomCards.hasOwnProperty(key) && key.charAt(0) === '_') {
-      delete CustomCards[key];
+  for (var i = CustomCards.length - 1; i >= 0; i--) {
+    var cc = CustomCards[i];
+  
+    for (var key in cc) {
+      if (cc.hasOwnProperty(key) && key.charAt(0) === '_') {
+        delete CustomCards[i][key];
+      }
     }
   }
 } catch (e) {
@@ -566,6 +570,13 @@ Players[#].Rules[...]  --place to save any perm rules they receive
 var GameDeck = [];  //Array holding all the cards to be played with.
 var Requirements = []; //Array holding the requirements from all cards.
 var Activities = []; //Array holding the activities from all cards.
+var GameState = {
+  "Card":{},
+  "Target":{},
+  "Top":{},
+  "SecretDone":false,
+  "Random":-1,
+};
 
 function setupGame() {
   //all the functions and code to get the game ready to play.
@@ -576,6 +587,9 @@ function setupGame() {
   selectRequirements(); //Let the players select what toys and objects they have available.
   selectActivities(); //Lets the players mark certain activities as hard limits to remove from play.
   remvoeFilteredCards(); //remove the cards blacklisted from the above inputs.
+  
+  registerTrigger({"type":"variableChange","valueChange":true,"variable":"gameChoice"}, onTrigger);
+  displayCurrentGameState();
 }
 
 function getPlayerDetails() {
@@ -954,6 +968,100 @@ function remvoeFilteredCards() {
   }
 }
 
+function spinBottle() {
+  var tarIndex = Math.floor(Math.random() * Players.length);
+  var topIndex = tarIndex;
+  while (topIndex === tarIndex) {
+    topIndex = Math.floor(Math.random() * Players.length);
+  }
+  GameState.Target = Players[tarIndex];
+  GameState.Top = Players[topIndex];
+}
+
+function drawCard() {
+  var invalid = true;
+  
+  while (invalid) {
+    var cardIndex = Math.floor(Math.random() * GameDeck.length);
+    var card = GameDeck[cardIndex];
+    var reqString;
+    if (GameState.Target.Penis) reqString = "Vagina";
+    if (GameState.Target.Vagina) reqString = "Penis";
+    
+    var found = false;
+    for (var i = 0; i < card.Requirements.length; i++) {
+      if (card.Requirements[i] === reqString) {
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      invalid = false;
+      GameState.Card = card;
+      GameState.SecretDone = false;
+      GameState.Random = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
+    } 
+  }
+}
+
+function displayCurrentGameState() {
+  var text;
+  var mainButObj = [];
+  var sideButObj = [];
+
+  if (GameState.Card && GameState.Card.TopPenisText) {
+    //if there's a "valid" card, process it's text and display it.
+
+    if (GameState.Card.Secret && !GameState.SecretDone) {
+      text = GameState.Card.SecretText;
+      mainButObj.push({"Name":"Continue Action", "Value":"ContSecret"});
+    } else {
+      text = (GameState.Top.Vagina && GameState.Card.TopVaginaText != null) ? GameState.Card.TopVaginaText : GameState.Card.TopPenisText;
+      mainButObj.push({"Name":"Spin the Bottle", "Value":"Spin"});
+      if (GameState.Card.Timer) sideButObj.push({"Name":"Start Timer","Value":"StartTimer"});
+    }
+    text = replacePlaceholders(text, GameState.Target.Name, GameState.Top.Name, GameState.Random);
+    mainButObj.push({"Name":"Redraw Card", "Value":"Redraw"});
+  } else {
+    text = "Welcome to Twist the Deck.  Make sure all players have discussed non-coded limits, " +
+      "such as safe words, safer sex, etc.  Remember to play safe and not do anything you're not " +
+      "comfortable doing or feel unsafe doing.  This is supposed to be fun! If everyone agrees, " +
+      "press the 'Spin the Bottle' button to begin the game.";
+    mainButObj.push({"Name":"Spin the Bottle", "Value":"Spin"});
+  }
+  
+  showMainText(text, true);
+
+  showSideButtons(sideButObj, "gameChoice");
+  showChoiceButtons(mainButObj, "gameChoice", true);
+}
+
+function onTrigger(data) {
+  processGameInput(data.trigger);
+}
+
+function processGameInput(choice) {
+  switch (choice) {
+    case "StartTimer":
+      showTimer(GameState.Random);
+      break;
+    case "PermRule":
+      showStatusText("Perm Rule clicked.");
+      break;
+    case "Spin":
+      spinBottle();
+      drawCard();
+      break;
+    case "Redraw":
+      drawCard();
+      break;
+    case "ContSecret":
+      GameState.SecretDone = true;
+      break;
+  }
+  displayCurrentGameState();
+}
+
 function findIndex(Array, Key, Value) {
   /*
     Returns true, index if an object in the Array contains the Key: Value pair.
@@ -1002,15 +1110,31 @@ function toTitleCase(str) {
   }).join(' ');
 }
 
-function getRandom(input) {
-  //Processes the numbers through Xtoys for randomization and such
-  setVariable("num", input);
-  callAction({
-    "type":"updateJob",
-    "job":"ProcessNumber",
-    "action":"start",
-    "restart":true});
-  return getVariable("num");
+function parseNumberInput(str) {
+  str = str.trim();
+
+  // Range format: (x-y)
+  if (/^\(\d+\s*-\s*\d+\)$/.test(str)) {
+    var range = str.slice(1, -1).split("-");
+    var min = parseInt(range[0], 10);
+    var max = parseInt(range[1], 10);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // List format: (x|y|z)
+  if (/^\((\d+\|)+\d+\)$/.test(str)) {
+    var options = str.slice(1, -1).split("|");
+    var index = Math.floor(Math.random() * options.length);
+    return parseInt(options[index], 10);
+  }
+
+  // Plain number
+  if (/^\d+$/.test(str)) {
+    return parseInt(str, 10);
+  }
+
+  // Invalid format
+  throw new Error("Invalid input: " + str);
 }
 
 function replacePlaceholders(str, tar, top, rnd) {
@@ -1084,7 +1208,7 @@ function clearMainText() {
     });
 }
 
-function showChoiceButtons(buttonObj, varName) {
+function showChoiceButtons(buttonObj, varName, noBlocking) {
   /*
     buttonObj = [
       {  //first button
@@ -1116,12 +1240,64 @@ function showChoiceButtons(buttonObj, varName) {
     };
   }
   
-  callAction(jsonObj, true);
+  callAction(jsonObj, !noBlocking);
   return getVariable(varName);
 }
 
+function showSideButtons(buttonObj, varName, clearBool) {
+  /*
+    buttonObj = [
+      {  //first button
+        Name: "Button One"
+        Value: "set varName to this Value"
+      },{  //second button
+        Name: ...
+        Value: ...
+      }
+    varName - string of variable name to use in XToys.
+    
+    Creates a series of side buttons using the above inputs in the main
+    area of XToys.
+  */
+  clearBool = clearBool || false;
+  
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"input",
+    "inputType":"side-buttons",
+    "buttons":[],
+    "clearAfter": clearBool
+  };
+  for (var i = 0; i < buttonObj.length; i ++) {
+    jsonObj.buttons[i] = {
+      "name":buttonObj[i].Name,
+      "action":null,
+      "setVariable":true,
+      "variable":varName,
+      "variableValue":buttonObj[i].Value
+    };
+  }
+  
+  callAction(jsonObj);
+}
+
+function showTimer(time) {
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"timer",
+    "timerType":"normal",
+    "seconds":time,
+    "stopOnStepChange":false,
+    "blockActions":false,
+    "allowSkip":true
+  };
+  
+  callAction(jsonObj);
+}
 /* TODO:
-  --Spin bottle, draw Cards, handle Secret option, redraw button. start timer
+  --Side buttons (Start Timer) currently don't disappear when uneeded.
   --Track Permanent Rules, option to remove them when finished, roll/timer if needed.
+  --Create BDSM, BDSM-Sex, and Asphyx decks.
   --Fix Canvas Shit
+  --Make things pretty!  (Pictures/graphics/animation)
 */
