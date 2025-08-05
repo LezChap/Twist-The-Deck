@@ -12,6 +12,7 @@ var Decks = [
           Permanent: false,  //is card a permanent rule
           Random: "(30|60)",  //Uses a number, can be random using Xtoy's format
           Timer: true,  //Is random a timer?
+          Reroll: false, //if Permanent card, do we reroll the Random number?
           Secret: false, //Is the action to be hidden from the target?
           SecretText: null, //the text to instruct the target to be completed before 
                             //continuing to the text below, often involving being 
@@ -397,6 +398,7 @@ var Decks = [
           Activities: [ "Denial" ],
           Permanent: true,
           Random: "(5-10)",
+          Reroll: false,
           Timer: false,
           TopPenisText: "[tar] is hereby denied being allowed to orgasm until at least [rnd] orgasms are reached by other players.  Any activities which require them to cum must be re-rolled (activities which only one participant must cum are still in play).  If they cum before they are freed from this rule, the count is reset and doubled.",
           TopVaginaText: null,
@@ -1002,7 +1004,8 @@ function drawCard() {
     
     if (!found) {
       var isDuplicate = false;
-      
+      var rnd = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
+
       if (card.Permanent) {
         var tarName = GameState.Target.Name;
         for (i = 0; i < Players.length; i++) {
@@ -1018,6 +1021,7 @@ function drawCard() {
               Players[i].Rules.push({
                 "Card":card,
                 "Top":GameState.Top,
+                "Random":rnd,
               });
             }
             break;
@@ -1029,7 +1033,7 @@ function drawCard() {
         invalid = false;
         GameState.Card = card;
         GameState.SecretDone = false;
-        GameState.Random = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
+        GameState.Random = rnd;
       } 
     }
   }
@@ -1084,22 +1088,22 @@ function onRuleTrigger(data) {
   var operation = ruleChoice.split(",")[0];
   var ruleID = ruleChoice.split(",")[1];
   var playerID = RulesDisplayState.PlayerID;
-  console.log("onRuleTrigger: " + ruleChoice);
+  var rule = Players[playerID].Rules[ruleID];
+
   
   switch (operation) {
     case "Return":
       displayCurrentGameState();
       return;
     case "StartTimer":
-      var time = parseNumberInput(Players[playerID].Rules[ruleID].Card.Random);
+      var time = (rule.Card.Reroll) ? parseNumberInput(rule.Card.Random) : (rule.Random || -1);
       showTimer(time);
       break;
     case "RollDice":
-      var num = parseNumberInput(Players[playerID].Rules[ruleID].Card.Random);
+      var num = (rule.Card.Reroll) ? parseNumberInput(rule.Card.Random) : (rule.Random || -1);
       showMainText("Your random number for this task: " + num, false);
       break;
     case "Remove":
-      console.log("Removed rule card: " + Players[playerID].Rules[ruleID].Card.Name + " from " + Players[playerID].Name);
       Players[playerID].Rules.splice(ruleID, 1);
       break;
     case "Rule":
@@ -1137,7 +1141,6 @@ function processGameInput(choice) {
     case "Player9":
     case "Player10":
     case "Player11":
-      console.log("processGameInput: " + choice);
       var match = choice.match(/\d+/);
       var pIndex = match ? parseInt(match[0], 10) : null;
       if (pIndex >= 0 && pIndex < Players.length) {
@@ -1173,8 +1176,7 @@ function showPrivateRules() {
     var rule = rules[ruleID];
     showMainText("Card: " + rule.Card.Name, true);
     var text = (rule.Top.Vagina && rule.Card.TopVaginaText != null) ? rule.Card.TopVaginaText : rule.Card.TopPenisText;
-    var rnd = "";
-    if (rule.Card.Random) rnd = parseNumberInput(rule.Card.Random);
+    var rnd = (rule.Card.Random && rule.Card.Reroll) ? parseNumberInput(rule.Card.Random) : (rule.Random || -1);
     text = replacePlaceholders(text, Players[pIndex].Name, rule.Top.Name, rnd);
     if (rule.Card.Timer) {
       sideButObj.push({"Name":"Start Timer", "Value":"StartTimer," + ruleID});
@@ -1423,9 +1425,7 @@ function showTimer(time) {
   callAction(jsonObj);
 }
 /* TODO:
-  --bugs to fix:
-  ----keep perm rule random roll or reroll (add key to card)
   --Create BDSM, BDSM-Sex, and Asphyx decks.
-  --Fix Canvas Shit
+  --Fix Canvas display Shit
   --Make things pretty!  (Pictures/graphics/animation)
 */
