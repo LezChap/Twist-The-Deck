@@ -8,3 +8,8 @@ This Tease is a game meant to be played in-person with other people. Consider if
 When engaging in any activities listed on a card, please know what you're doing and be safe. If you don't feel safe to perform a task, please draw a new card instead of risking harming someone. If you're playing this, you're trying to have fun and feel good; so don't be a doof and send someone to the hospital!
 
 Visit (github link) for the JavaScript code for this Tease, to see the full list of cards in the decks, an example custom deck, and possibly community-created custom decks for use in your game.
+
+To manually create this tease:
+1. Import the Xtoys Tease with the code in Tease_Import.json.  This creates the canvas and runs the Custom JS code in step 2.
+2. Add the "core.js" file code as Custom JS for the tease (JS button at the top).
+3. Save and Start your tease.
