@@ -1159,7 +1159,10 @@ function showPrivateRules() {
   var rules = Players[pIndex].Rules;
   var buttonObj = [];
   var sideButObj = [];
-  if (!rules || rules.length === 0) return;
+  if (!rules || rules.length === 0) {
+    displayCurrentGameState();
+    return;
+  }
   
   for (var i = 0; i < rules.length; i++) {
     buttonObj.push({"Name":rules[i].Card.Name, "Value":"Rule," + i});
@@ -1422,7 +1425,6 @@ function showTimer(time) {
 /* TODO:
   --bugs to fix:
   ----keep perm rule random roll or reroll (add key to card)
-  ----if deleting a rule leaves none left, return to main game loop
   --Create BDSM, BDSM-Sex, and Asphyx decks.
   --Fix Canvas Shit
   --Make things pretty!  (Pictures/graphics/animation)
