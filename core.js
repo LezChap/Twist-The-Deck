@@ -376,7 +376,7 @@ var Decks = [
           Permanent: true,
           Random: null,
           Timer: false,
-          TopPenisText: "Anytime someone gets a task where they may cum, you must be nearby, so that if the person cumming wants to, they may cum on your face. You are to wear this cum until the game ends.  -ILikeBukakke.gif-",
+          TopPenisText: "Anytime someone gets a task where they may cum, [tar] must be nearby, so that if the person cumming wants to, they may cum on [tar]'s face. [tar] is to wear this cum until the game ends.  -ILikeBukakke.gif-",
           TopVaginaText: null,
         },        
         { //card 34
@@ -464,8 +464,8 @@ var Decks = [
           Permanent: false,
           Random: null,
           Timer: false,
-          TopPenisText: "[top] is now an anal cockwarmer for [tar].  [top] will sit on [tar's] lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.",
-          TopVaginaText: "[top] is now a cockwarmer for [tar].  [top] will sit on [tar's] lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.  [tar] may, at their request, use your vagina for a cockwarmer instead.",
+          TopPenisText: "[top] is now an anal cockwarmer for [tar].  [top] will sit on [tar]'s lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.",
+          TopVaginaText: "[top] is now a cockwarmer for [tar].  [top] will sit on [tar]'s lap with [tar]'s penis in their ass to keep it warm until another tasks requires one of you.  [tar] may, at their request, use your vagina for a cockwarmer instead.",
         },
         { //card 42
           Name: "Fluffer",
@@ -560,6 +560,7 @@ if (Array.isArray(CustomCards)) {
   Decks.push(CustomDeck);
 }
 
+var ruleChoice;
 var Players = [];  //Array holding the details of all players.
 /*
 Players[#].Name        --Player Name
@@ -577,6 +578,7 @@ var GameState = {
   "SecretDone":false,
   "Random":-1,
 };
+var RulesDisplayState = {};
 
 function setupGame() {
   //all the functions and code to get the game ready to play.
@@ -588,7 +590,9 @@ function setupGame() {
   selectActivities(); //Lets the players mark certain activities as hard limits to remove from play.
   remvoeFilteredCards(); //remove the cards blacklisted from the above inputs.
   
-  registerTrigger({"type":"variableChange","valueChange":true,"variable":"gameChoice"}, onTrigger);
+  registerTrigger({"type":"variableChange","valueChange":true,"variable":"gameChoice"}, onMainTrigger);
+  registerTrigger({"type":"variableChange","valueChange":true,"variable":"ruleChoice"}, onRuleTrigger);
+
   displayCurrentGameState();
 }
 
@@ -1000,7 +1004,19 @@ function drawCard() {
       GameState.Card = card;
       GameState.SecretDone = false;
       GameState.Random = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
-    } 
+      if (card.Permanent) {
+        var tarName = GameState.Target.Name;
+        for (i = 0; i < Players.length; i++) {
+          if (Players[i].Name === tarName) {
+            Players[i].Rules.push({
+              "Card":card,
+              "Top":GameState.Top,
+            });
+            break;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1030,23 +1046,59 @@ function displayCurrentGameState() {
     mainButObj.push({"Name":"Spin the Bottle", "Value":"Spin"});
   }
   
+  for (var i = 0; i < Players.length; i++) {
+    var ruleCount = 0;
+    if (Players && Players[i].Rules && Players[i].Rules.length) {
+      ruleCount = Players[i].Rules.length;
+    }
+    sideButObj.push({"Name":Players[i].Name +"'s Rules: " + ruleCount, "Value":"Player" + i});
+  }
+  
   showMainText(text, true);
 
   showSideButtons(sideButObj, "gameChoice");
   showChoiceButtons(mainButObj, "gameChoice", true);
 }
 
-function onTrigger(data) {
+function onMainTrigger(data) {
   processGameInput(data.trigger);
+}
+
+function onRuleTrigger(data) {
+  var ruleChoice = data.trigger;
+  var operation = ruleChoice.split(",")[0];
+  var ruleID = ruleChoice.split(",")[1];
+  var playerID = RulesDisplayState.PlayerID;
+  console.log("onRuleTrigger: " + ruleChoice);
+  
+  switch (operation) {
+    case "Return":
+      displayCurrentGameState();
+      return;
+    case "StartTimer":
+      var time = parseNumberInput(Players[playerID].Rules[ruleID].Card.Random);
+      showTimer(time);
+      break;
+    case "RollDice":
+      var num = parseNumberInput(Players[playerID].Rules[ruleID].Card.Random);
+      showMainText("Your random number for this task: " + num, false);
+      break;
+    case "Remove":
+      console.log("Removed rule card: " + Players[playerID].Rules[ruleID].Card.Name + " from " + Players[playerID].Name);
+      Players[playerID].Rules.splice(ruleID, 1);
+      break;
+    case "Rule":
+      RulesDisplayState.ruleID = ruleID;
+      break;
+    default:
+  }
+  showPrivateRules();
 }
 
 function processGameInput(choice) {
   switch (choice) {
     case "StartTimer":
       showTimer(GameState.Random);
-      break;
-    case "PermRule":
-      showStatusText("Perm Rule clicked.");
       break;
     case "Spin":
       spinBottle();
@@ -1058,8 +1110,66 @@ function processGameInput(choice) {
     case "ContSecret":
       GameState.SecretDone = true;
       break;
+    case "Player0":
+    case "Player1":
+    case "Player2":
+    case "Player3":
+    case "Player4":
+    case "Player5":
+    case "Player6":
+    case "Player7":
+    case "Player8":
+    case "Player9":
+    case "Player10":
+    case "Player11":
+      console.log("processGameInput: " + choice);
+      var match = choice.match(/\d+/);
+      var pIndex = match ? parseInt(match[0], 10) : null;
+      if (pIndex >= 0 && pIndex < Players.length) {
+        clearMainText();
+        RulesDisplayState = {};
+        RulesDisplayState.PlayerID = pIndex;
+        RulesDisplayState.ruleID = null;
+        showPrivateRules();
+      }
+      break;
+    default:
   }
-  displayCurrentGameState();
+  if (!(choice.indexOf("Player") === 0))  displayCurrentGameState();
+}
+
+function showPrivateRules() {
+  var pIndex = RulesDisplayState.PlayerID;
+  var ruleID = RulesDisplayState.ruleID;
+  var rules = Players[pIndex].Rules;
+  var buttonObj = [];
+  var sideButObj = [];
+  if (!rules || rules.length === 0) return;
+  
+  for (var i = 0; i < rules.length; i++) {
+    buttonObj.push({"Name":rules[i].Card.Name, "Value":"Rule," + i});
+  }
+  buttonObj.push({"Name":"Return to Game", "Value":"Return"});
+  
+  if (RulesDisplayState.ruleID && RulesDisplayState.ruleID >= 0 && RulesDisplayState.ruleID < rules.length) {    
+    var rule = rules[ruleID];
+    showMainText("Card: " + rule.Card.Name, true);
+    var text = (rule.Top.Vagina && rule.Card.TopVaginaText != null) ? rule.Card.TopVaginaText : rule.Card.TopPenisText;
+    var rnd = "";
+    if (rule.Card.Random) rnd = parseNumberInput(rule.Card.Random);
+    text = replacePlaceholders(text, Players[pIndex].Name, rule.Top.Name, rnd);
+    if (rule.Card.Timer) {
+      sideButObj.push({"Name":"Start Timer", "Value":"StartTimer," + ruleID});
+    } else if (rule.Card.Random) {
+      sideButObj.push({"Name":"Roll Random", "Value":"RollDice," + ruleID});
+    }
+    sideButObj.push({"Name":"Remove rule", "Value":"Remove," + ruleID});
+    showMainText(text, false);
+  }
+  
+  showStatusText("Active Rule Cards for " + Players[pIndex].Name);
+  showSideButtons(sideButObj, "ruleChoice", true);
+  showChoiceButtons(buttonObj, "ruleChoice", true);
 }
 
 function findIndex(Array, Key, Value) {
@@ -1295,8 +1405,10 @@ function showTimer(time) {
   callAction(jsonObj);
 }
 /* TODO:
-  --Side buttons (Start Timer) currently don't disappear when uneeded.
-  --Track Permanent Rules, option to remove them when finished, roll/timer if needed.
+  --bugs to fix:
+  ----prevent duplicate perm rules
+  ----keep perm rule random roll or reroll (add key to card)
+  ----if deleting a rule leaves none left, return to main game loop
   --Create BDSM, BDSM-Sex, and Asphyx decks.
   --Fix Canvas Shit
   --Make things pretty!  (Pictures/graphics/animation)
