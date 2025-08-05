@@ -266,8 +266,8 @@ var Decks = [
           Permanent: false,
           Random: "(60|120|240)",
           Timer: true,
-          TopPenisText: "The [tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
-          TopVaginaText: "The [tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
+          TopPenisText: "[tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
+          TopVaginaText: "[tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
         },
         { //card 24
           Name: "Cum Doggy",
@@ -277,8 +277,8 @@ var Decks = [
           Permanent: false,
           Random: null,
           Timer: false,
-          TopPenisText: "The [tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
-          TopVaginaText: "The [tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy for [rnd] seconds - doggy style.",
+          TopPenisText: "[tar] will kneel and bend over.  [top] will use their penis to fuck [tar]'s pussy until someone cums - doggy style.",
+          TopVaginaText: "[tar] will kneel and bend over.  [top] will use a strap-on (if available), a dildo, or their hands to fuck [tar]'s pussy until someone cums - doggy style.",
         },
         { //card 25
           Name: "Doggy Style",
@@ -999,23 +999,38 @@ function drawCard() {
         break;
       }
     }
+    
     if (!found) {
-      invalid = false;
-      GameState.Card = card;
-      GameState.SecretDone = false;
-      GameState.Random = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
+      var isDuplicate = false;
+      
       if (card.Permanent) {
         var tarName = GameState.Target.Name;
         for (i = 0; i < Players.length; i++) {
           if (Players[i].Name === tarName) {
-            Players[i].Rules.push({
-              "Card":card,
-              "Top":GameState.Top,
-            });
+            var rules = Players[i].Rules;
+            for (k = 0; k < rules.length; k ++) {
+              if (rules[k].Card.Name === card.Name) {
+                isDuplicate = true;
+                break;
+              }
+            }
+            if (!isDuplicate) {
+              Players[i].Rules.push({
+                "Card":card,
+                "Top":GameState.Top,
+              });
+            }
             break;
           }
         }
       }
+      
+      if (!isDuplicate) {
+        invalid = false;
+        GameState.Card = card;
+        GameState.SecretDone = false;
+        GameState.Random = (card.Random != null && card.Random !== "") ? parseNumberInput(card.Random) : -1;
+      } 
     }
   }
 }
@@ -1406,7 +1421,6 @@ function showTimer(time) {
 }
 /* TODO:
   --bugs to fix:
-  ----prevent duplicate perm rules
   ----keep perm rule random roll or reroll (add key to card)
   ----if deleting a rule leaves none left, return to main game loop
   --Create BDSM, BDSM-Sex, and Asphyx decks.
