@@ -562,6 +562,8 @@ if (Array.isArray(CustomCards)) {
   Decks.push(CustomDeck);
 }
 
+canvas.width = 1500;
+canvas.height = 1000;
 var ruleChoice;
 var Players = [];  //Array holding the details of all players.
 /*
@@ -1040,7 +1042,12 @@ function drawCard() {
 }
 
 function displayCurrentGameState() {
-  var text;
+  var name = "Welcome to Twist the Deck!";
+  var text = "Make sure all players have discussed non-coded limits, " +
+      "such as safe words, safer sex, etc.  Remember to play safe and not do anything you're not " +
+      "comfortable doing or feel unsafe doing.  This is supposed to be fun! If everyone agrees, " +
+      "press the 'Spin the Bottle' button to begin the game.";
+  
   var mainButObj = [];
   var sideButObj = [];
 
@@ -1056,12 +1063,9 @@ function displayCurrentGameState() {
       if (GameState.Card.Timer) sideButObj.push({"Name":"Start Timer","Value":"StartTimer"});
     }
     text = replacePlaceholders(text, GameState.Target.Name, GameState.Top.Name, GameState.Random);
+    name = GameState.Card.Name;
     mainButObj.push({"Name":"Redraw Card", "Value":"Redraw"});
   } else {
-    text = "Welcome to Twist the Deck.  Make sure all players have discussed non-coded limits, " +
-      "such as safe words, safer sex, etc.  Remember to play safe and not do anything you're not " +
-      "comfortable doing or feel unsafe doing.  This is supposed to be fun! If everyone agrees, " +
-      "press the 'Spin the Bottle' button to begin the game.";
     mainButObj.push({"Name":"Spin the Bottle", "Value":"Spin"});
   }
   
@@ -1073,7 +1077,9 @@ function displayCurrentGameState() {
     sideButObj.push({"Name":Players[i].Name +"'s Rules: " + ruleCount, "Value":"Player" + i});
   }
   
-  showMainText(text, true);
+  showMainText(name, true);
+  showMainText(text, false);
+  displayCardToCanvas(name, text);
 
   showSideButtons(sideButObj, "gameChoice");
   showChoiceButtons(mainButObj, "gameChoice", true);
@@ -1185,6 +1191,7 @@ function showPrivateRules() {
     }
     sideButObj.push({"Name":"Remove rule", "Value":"Remove," + ruleID});
     showMainText(text, false);
+    displayCardToCanvas(rule.Card.Name, text);
   }
   
   showStatusText("Active Rule Cards for " + Players[pIndex].Name);
@@ -1208,6 +1215,56 @@ function findIndex(Array, Key, Value) {
   return [found, index];
 }
 
+function displayCardToCanvas(name, text) {
+
+  canvas.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Card dimensions (with padding around the edges)
+  var padding = 100;
+  var cardX = padding;
+  var cardY = padding;
+  var cardWidth = canvas.width - padding * 2;
+  var cardHeight = canvas.height - padding * 2;
+  var borderRadius = 30;
+
+  // Draw card background with rounded corners
+  canvas.fillStyle = "#ffffff";
+  canvas.strokeStyle = "#000000";
+  canvas.lineWidth = 5;
+
+  canvas.beginPath();
+  canvas.moveTo(cardX + borderRadius, cardY);
+  canvas.lineTo(cardX + cardWidth - borderRadius, cardY);
+  canvas.quadraticCurveTo(cardX + cardWidth, cardY, cardX + cardWidth, cardY + borderRadius);
+  canvas.lineTo(cardX + cardWidth, cardY + cardHeight - borderRadius);
+  canvas.quadraticCurveTo(cardX + cardWidth, cardY + cardHeight, cardX + cardWidth - borderRadius, cardY + cardHeight);
+  canvas.lineTo(cardX + borderRadius, cardY + cardHeight);
+  canvas.quadraticCurveTo(cardX, cardY + cardHeight, cardX, cardY + cardHeight - borderRadius);
+  canvas.lineTo(cardX, cardY + borderRadius);
+  canvas.quadraticCurveTo(cardX, cardY, cardX + borderRadius, cardY);
+  canvas.closePath();
+
+  canvas.fill();
+  canvas.stroke();
+
+  // Draw the title
+  canvas.fillStyle = "#000000";
+  canvas.font = "bold 48px sans-serif";
+  canvas.textAlign = "center";
+  canvas.fillText(name, canvas.width / 2, cardY + 80);
+
+  // Draw the wrapped text
+  canvas.font = "28px sans-serif";
+  canvas.textAlign = "center";
+
+  var textX = canvas.width / 2;
+  var textY = cardY + 140;
+  var maxWidth = cardWidth - 80;
+  var lineHeight = 40;
+
+  wrapText(text, textX, textY, maxWidth, lineHeight);
+}
+
 function wrapText(text, x, y, maxWidth, lineHeight) {
   /*
     Writes the text variable to the canvas at the x and y
@@ -1216,22 +1273,20 @@ function wrapText(text, x, y, maxWidth, lineHeight) {
   */
   var words = text.split(' ');
   var line = '';
-  var testLine = '';
-  var testWidth = 0;
-  var currentY = y;
 
   for (var n = 0; n < words.length; n++) {
-    testLine = line + words[n] + ' ';
-    testWidth = canvas.measureText(testLine).width;
+    var testLine = line + words[n] + ' ';
+    var testWidth = canvas.measureText(testLine).width;
+
     if (testWidth > maxWidth && n > 0) {
-      canvas.fillText(line, x, currentY);
+      canvas.fillText(line.trim(), x, y);
       line = words[n] + ' ';
-      currentY += lineHeight;
+      y += lineHeight;
     } else {
       line = testLine;
     }
   }
-  canvas.fillText(line, x, currentY);
+  canvas.fillText(line.trim(), x, y);
 }
 
 function toTitleCase(str) {
@@ -1426,6 +1481,6 @@ function showTimer(time) {
 }
 /* TODO:
   --Create BDSM, BDSM-Sex, and Asphyx decks.
-  --Fix Canvas display Shit
+  --Fix Canvas Shit
   --Make things pretty!  (Pictures/graphics/animation)
 */
