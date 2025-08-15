@@ -1,13 +1,6 @@
 {
   "initialActions": [
     {
-      "part": "canvas",
-      "type": "updateTease",
-      "width": "1500",
-      "action": "create",
-      "height": "1000"
-    },
-    {
       "job": "Main",
       "type": "updateJob",
       "action": "start"
@@ -21,24 +14,46 @@
         "START": {
           "actions": [
             {
+              "part": "text",
+              "text": {
+                "ops": [
+                  {
+                    "insert": "Desktop Canvas Fix"
+                  },
+                  {
+                    "insert": "\n",
+                    "attributes": {
+                      "align": "center"
+                    }
+                  }
+                ]
+              },
+              "type": "updateTease",
+              "delay": "none",
+              "location": "main"
+            },
+            {
+              "part": "text",
+              "text": {
+                "ops": [
+                  {
+                    "insert": "\n",
+                    "attributes": {
+                      "align": "center"
+                    }
+                  }
+                ]
+              },
+              "type": "updateTease",
+              "clear": true,
+              "delay": "none",
+              "location": "main"
+            },
+            {
               "code": "setupGame();",
               "type": "customCode",
               "wait": null,
               "customVar": "result"
-            }
-          ],
-          "triggers": []
-        }
-      }
-    },
-    "ProcessNumber": {
-      "steps": {
-        "START": {
-          "actions": [
-            {
-              "type": "updateVariable",
-              "value": "({num})",
-              "variable": "num"
             }
           ],
           "triggers": []
@@ -68,7 +83,7 @@
       "id": "CustomDeck",
       "name": "Custom Deck",
       "type": "textarea",
-      "value": "[\n    {\n        \"Name\": \"Kiss\",\n        \"Copies\": 1,\n        \"_comment1\": \"Copies is how many of this card will be placed in the play deck.\",\n        \"Requirements\": [],\n        \"_comment2\": \"Requirements: Array List, Include any required objects/toys, or if the\",\n        \"_comment3\": \"target player needs a Penis or Vagina via 'Penis':true\",\n        \"Activities\": [\"Kissing\"],\n        \"_comment4\": \"Array List of any of the activities involved in the card (for hard limits)\",\n        \"Permanent\": false,\n        \"_comment5\": \"is this card a 'rule' that lasts multiple rounds?\",\n        \"Random\": \"(30|60)\",\n        \"_comment6\": \"Use a number, can be random, uses Xtoys number syntax\",\n        \"Timer\": true,\n        \"_comment7\": \"Is this number used for a timer?\",\n        \"Secret\": false,\n        \"SecretText\": null,\n        \"_comment8\": \"Should this card's action be a secret to the target?  If so, display\",\n        \"_comment9\": \"the SecretText and wait before displaying the rest of the text below.\",\n        \"_comment0\": \"The text below can vary if the 'top' player performing the act has a \",\n        \"_commenta\": \"Penis or Vagina.  [tar] and [top] will be replaced with the appropriate\",\n        \"_commentb\": \"player's names.  [rnd] will be replaced with the number used from above.\",\n        \"TopPenisText\": \"[top] will approach [tar] and kiss them for [rnd] seconds.\",\n        \"TopVaginaText\": null\n    },\n    {\n        \"Name\": \"Grope\",\n        \"Copies\": 1,\n        \"Requirements\": [],\n        \"Activities\": [\"Groping\"],\n        \"Permanent\": false,\n        \"Random\": \"(30|60)\",\n        \"Timer\": true,\n        \"TopPenisText\": \"[top] will approach [tar] and grope them for [rnd] seconds.\",\n        \"TopVaginaText\": null\n    }\n]",
+      "value": "[\n    {\n        \"Name\": \"Kiss\",\n        \"Copies\": 1,\n        \"_comment1\": \"Copies is how many of this card will be placed in the play deck.\",\n        \"Requirements\": [],\n        \"_comment2\": \"Requirements: Array List, Include any required objects/toys, or if the\",\n        \"_comment3\": \"target player needs a Penis or Vagina via 'Penis':true\",\n        \"Activities\": [\"Kissing\"],\n        \"_comment4\": \"Array List of any of the activities involved in the card (for hard limits)\",\n        \"Permanent\": false,\n        \"_comment5\": \"is this card a 'rule' that lasts multiple rounds?\",\n        \"Reroll\": false,\n        \"_commentsc\": \"when this card is Permanent, will it Reroll the Random Number (true) or keep the Random value?\",\n        \"Random\": \"(30|60)\",\n        \"_comment6\": \"Use a number, can be random, uses Xtoys number syntax\",\n        \"Timer\": true,\n        \"_comment7\": \"Is this number used for a timer?\",\n        \"Secret\": false,\n        \"SecretText\": null,\n        \"_comment8\": \"Should this card's action be a secret to the target?  If so, display\",\n        \"_comment9\": \"the SecretText and wait before displaying the rest of the text below.\",\n        \"_comment0\": \"The text below can vary if the 'top' player performing the act has a \",\n        \"_commenta\": \"Penis or Vagina.  [tar] and [top] will be replaced with the appropriate\",\n        \"_commentb\": \"player's names.  [rnd] will be replaced with the number used from above.\",\n        \"TopPenisText\": \"[top] will approach [tar] and kiss them for [rnd] seconds.\",\n        \"TopVaginaText\": null\n    },\n    {\n        \"Name\": \"Grope\",\n        \"Copies\": 1,\n        \"Requirements\": [],\n        \"Activities\": [\"Groping\"],\n        \"Permanent\": false,\n        \"Random\": \"(30|60)\",\n        \"Timer\": true,\n        \"TopPenisText\": \"[top] will approach [tar] and grope them for [rnd] seconds.\",\n        \"TopVaginaText\": null\n    }\n]",
       "description": "This lets you add custom cards to the game."
     }
   ],
