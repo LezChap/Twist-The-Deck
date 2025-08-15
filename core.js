@@ -888,6 +888,7 @@ var RulesDisplayState = {};
 
 function setupGame() {
   createCanvas();
+  displayCardToCanvas("Welcome to Twist the Deck", "Enter Player Names and Details to Continue.");
   //all the functions and code to get the game ready to play.
   getPlayerDetails(); //get all player names/data
   chooseDecks();  //Select the decks to play with
@@ -912,21 +913,8 @@ function getPlayerDetails() {
     Players[i] = {};
     Players[i].Rules = [];
     //Ask each Player for their name and save it
-    showMainText("Player " + (i+1) + ". What is your name?", true);
-    /*  //replaced by showMainText above
-    callAction({
-      "type":"updateTease",
-      "part":"text",
-      "location":"main",
-      "delay":"none",
-      "text":{
-        "ops":[{
-          "insert":"Player " + i + ". What is your name?"},{
-          "attributes":{"align":"center"},
-          "insert":"\n"}
-        ]},
-      "clear":true}
-    ); */
+    showMainText("Player " + (i+1) + ". What is your name?");
+
     callAction({
       "part":"input",
       "type":"updateTease",
@@ -939,22 +927,7 @@ function getPlayerDetails() {
     setVariable("Penis", false);
     setVariable("Vagina", false);
     showMainText(Players[i].Name + ", What do you have?");
-    /* //replaced by showMainText above.
-    callAction({
-      "type":"updateTease",
-      "part":"text",
-      "location":"main",
-      "delay":"none",
-      "text":{
-        "ops":[{
-          "insert":Players[i].Name + ", What do you have?"},
-          {"attributes":{
-            "align":"center"},
-            "insert":"\n"
-          }
-        ]}
-      }); 
-    */
+
     callAction({
       "type":"updateTease",
       "part":"input",
@@ -981,13 +954,6 @@ function getPlayerDetails() {
     
     clearMainText();
   }
-  /* //Debugging Code
-  for (var i = 1; i <= Players.length; i++) {
-    var parts = "";
-    if (Players[i].Penis) {parts = "Penis ";}
-    if (Players[i].Vagina) {parts = parts + "Vagina";}
-    console.log("P"+i+ ": " + Players[i].Name + " " + parts);
-  }*/
 }
 
 function chooseDecks() { 
@@ -1206,7 +1172,7 @@ function selectActivities() {
     canvas.font = "48px serif";
     canvas.textAlign = "center";
     canvas.fillStyle = "white";
-    canvas.textBaseline = "top"; 
+    canvas.textBaseline = "top";  
     if (found) {
       wrapText(ActText, 1500/2, 150, 1450, 50);
       showMainText(ActText, true);
@@ -1519,7 +1485,7 @@ function findIndex(Array, Key, Value) {
 }
 
 function displayCardToCanvas(name, text) {
-
+  console.log("Displaying card to canvas: " + name + ", " + text);
   canvas.clearRect(0, 0, canvas.width, canvas.height);
 
   // Card dimensions (with padding around the edges)
@@ -1641,14 +1607,12 @@ function replacePlaceholders(str, tar, top, rnd) {
 }
 
 function createCanvas() {
-  showMainText("Canvas Resize Fix for Desktop");
-  clearMainText();
   var JSONObj = {
     "type":"updateTease",
     "part":"canvas",
     "action":"create",
-    "width":canvas.width,
-    "height":canvas.height,
+    "width":1500,
+    "height":1000,
   };
   callAction(JSONObj);
   sleep(250);
