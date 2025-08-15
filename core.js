@@ -887,6 +887,7 @@ var GameState = {
 var RulesDisplayState = {};
 
 function setupGame() {
+  createCanvas();
   //all the functions and code to get the game ready to play.
   getPlayerDetails(); //get all player names/data
   chooseDecks();  //Select the decks to play with
@@ -1639,6 +1640,20 @@ function replacePlaceholders(str, tar, top, rnd) {
     .replace(/\[rnd\]/g, rnd);
 }
 
+function createCanvas() {
+  showMainText("Canvas Resize Fix for Desktop");
+  clearMainText();
+  var JSONObj = {
+    "type":"updateTease",
+    "part":"canvas",
+    "action":"create",
+    "width":canvas.width,
+    "height":canvas.height,
+  };
+  callAction(JSONObj);
+  sleep(250);
+}
+
 function showStatusText(text) {
   /*
     Displays "text" in the Status Text area.
@@ -1783,6 +1798,5 @@ function showTimer(time) {
 }
 /* TODO:
   --Create BDSM-Sex, and Asphyx decks.
-  --Fix Canvas Shit
   --Make things pretty!  (Pictures/graphics/animation)
 */
