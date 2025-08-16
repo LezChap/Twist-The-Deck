@@ -50,7 +50,7 @@
               "location": "main"
             },
             {
-              "code": "setupGame();",
+              "code": "startTease();",
               "type": "customCode",
               "wait": null,
               "customVar": "result"
