@@ -885,9 +885,25 @@ var GameState = {
   "Random":-1,
 };
 var RulesDisplayState = {};
+var DeckBrowserState;
+
+function startTease() {
+  createCanvas();
+  displayCardToCanvas("Welcome to Twist the Deck!", "Click 'Start Game' to begin playing, or use the 'Deck Browser' to browse through all the cards in the available decks.");
+  registerTrigger({"type":"variableChange","valueChange":true,"variable":"startChoice"}, onStartTrigger);
+  var jsonObj = [
+    {
+    "Name":"Start Game",
+    "Value":"StartGame",
+    },{
+    "Name":"Deck Browser",
+    "Value":"DeckBrowswer",
+    }
+  ];
+  showChoiceButtons(jsonObj, "startChoice", true);
+}
 
 function setupGame() {
-  createCanvas();
   displayCardToCanvas("Welcome to Twist the Deck", "Enter Player Names and Details to Continue.");
   //all the functions and code to get the game ready to play.
   getPlayerDetails(); //get all player names/data
@@ -1354,6 +1370,113 @@ function displayCurrentGameState() {
   showChoiceButtons(mainButObj, "gameChoice", true);
 }
 
+function displayDeckBrowser() {
+  var mainButObj = [];
+  var sideButObj = [];
+  var card = Decks[DeckBrowserState.deckIndex].Cards[DeckBrowserState.cardIndex];
+  var reqs = card.Requirements.join(", ");
+  var acts = card.Activities.join(", ");
+  var deckName = Decks[DeckBrowserState.deckIndex].Name;
+  var text = "";
+  var borderColor = "black";
+  
+  if (DeckBrowserState.topPart === "Penis") {
+    borderColor = "blue";
+    sideButObj.push({"Name":"Toggle Top Text: Penis/Default", "Value":"Penis"});
+  } else {
+    borderColor = "pink";
+    sideButObj.push({"Name":"Toggle Top Text: Vagina", "Value":"Vagina"});
+  }
+  
+  if (DeckBrowserState.deckIndex === 0) {
+    mainButObj.push({"Name":"XX--Prev Deck", "Value":"PrevDeck"});
+  } else {
+    mainButObj.push({"Name":"<<--Prev Deck", "Value":"PrevDeck"});
+  }
+  if (DeckBrowserState.cardIndex === 0) {
+    mainButObj.push({"Name":"X-Prev Card", "Value":"PrevCard"});
+  } else {
+    mainButObj.push({"Name":"<-Prev Card", "Value":"PrevCard"});
+  }
+  mainButObj.push({"Name":"Return To Start", "Value":"Return"});
+  if (DeckBrowserState.cardIndex + 1 === Decks[DeckBrowserState.deckIndex].Cards.length) {
+    mainButObj.push({"Name":"Next Card-X", "Value":"NextCard"});
+  } else {
+    mainButObj.push({"Name":"Next Card->", "Value":"NextCard"});
+  }
+  if (DeckBrowserState.deckIndex + 1 === Decks.length) {
+    mainButObj.push({"Name":"Next Deck--XX", "Value":"NextDeck"});
+  } else {
+    mainButObj.push({"Name":"Next Deck-->>", "Value":"NextDeck"});
+  }
+  if (card && card.TopPenisText) {
+    //if there's a "valid" card, process it's text and display it.
+
+    if (card.Secret) {
+      text = card.SecretText;
+      text += "\nContinue...\n";
+    } 
+    text += (DeckBrowserState.topPart === "Vagina" && card.TopVaginaText != null) ? card.TopVaginaText : card.TopPenisText;
+    name = card.Name;
+  }
+  text = replacePlaceholders(text, "(Target)", "(Top)", card.Random);
+  displayCardToCanvas(name, text, borderColor, deckName, acts, reqs, card.Copies);
+  showSideButtons(sideButObj, "startChoice");
+  showChoiceButtons(mainButObj, "startChoice", true);
+
+}
+
+function onStartTrigger(data) {
+  var startChoice = data.trigger;
+  switch (startChoice) {
+    case "StartGame":
+      setupGame();
+      break;
+    case "DeckBrowswer":
+      DeckBrowserState = {
+        deckIndex: 0,
+        cardIndex: 0,
+        topPart: "Penis",
+      };
+      break;
+    case "Penis":
+      DeckBrowserState.topPart = "Vagina";
+      break;
+    case "Vagina":
+      DeckBrowserState.topPart = "Penis";
+      break;
+    case "PrevDeck":
+      if (DeckBrowserState.deckIndex > 0) {
+        DeckBrowserState.deckIndex -= 1;
+        DeckBrowserState.cardIndex = 0;
+      }
+      break;
+    case "PrevCard":
+      if (DeckBrowserState.cardIndex > 0) {
+        DeckBrowserState.cardIndex -= 1;
+      }
+      break;
+    case "NextCard":
+      if (DeckBrowserState.cardIndex + 1 < Decks[DeckBrowserState.deckIndex].Cards.length) {
+        DeckBrowserState.cardIndex += 1;
+      }
+      break;
+    case "NextDeck":
+      if (DeckBrowserState.deckIndex + 1 < Decks.length) {
+        DeckBrowserState.deckIndex += 1;
+        DeckBrowserState.cardIndex = 0;
+      }
+      break;
+    case "Return":
+      DeckBrowserState = null;
+      startTease();
+      return;
+    default:
+      
+  }
+  if (DeckBrowserState) {displayDeckBrowser();}
+}
+
 function onMainTrigger(data) {
   processGameInput(data.trigger);
 }
@@ -1428,7 +1551,8 @@ function processGameInput(choice) {
       break;
     default:
   }
-  if (!(choice.indexOf("Player") === 0))  displayCurrentGameState();
+  var startsWithPlayer = choice.indexOf("Player") === 0;
+  if (!startsWithPlayer) displayCurrentGameState();
 }
 
 function showPrivateRules() {
@@ -1484,8 +1608,7 @@ function findIndex(Array, Key, Value) {
   return [found, index];
 }
 
-function displayCardToCanvas(name, text) {
-  console.log("Displaying card to canvas: " + name + ", " + text);
+function displayCardToCanvas(name, text, borderColor, deckName, activities, requirements, copies) {
   canvas.clearRect(0, 0, canvas.width, canvas.height);
 
   // Card dimensions (with padding around the edges)
@@ -1496,9 +1619,11 @@ function displayCardToCanvas(name, text) {
   var cardHeight = canvas.height - padding * 2;
   var borderRadius = 30;
 
+  var strokeColor = borderColor || "#000000";
+
   // Draw card background with rounded corners
   canvas.fillStyle = "#ffffff";
-  canvas.strokeStyle = "#000000";
+  canvas.strokeStyle = strokeColor;
   canvas.lineWidth = 5;
 
   canvas.beginPath();
@@ -1531,31 +1656,87 @@ function displayCardToCanvas(name, text) {
   var maxWidth = cardWidth - 80;
   var lineHeight = 40;
 
-  wrapText(text, textX, textY, maxWidth, lineHeight);
+  var yStart = wrapText(text, textX, textY, maxWidth, lineHeight);
+  if (activities || requirements) {
+    var columnWidth = cardWidth / 2;
+    var leftColumnX = cardX + columnWidth / 2;
+    var rightColumnX = cardX + columnWidth + columnWidth / 2;
+    var dividerX = cardX + columnWidth;
+
+    canvas.beginPath();
+    canvas.moveTo(cardX + borderRadius, yStart);
+    canvas.lineTo(cardX + cardWidth - borderRadius, yStart);
+    canvas.moveTo(dividerX, yStart);
+    canvas.lineTo(dividerX, cardY + cardHeight - 120);
+    canvas.stroke();
+
+    wrapText("Activities:", leftColumnX + 20, yStart + 40, columnWidth - 40, lineHeight);
+    wrapText(activities || "", leftColumnX + 20, yStart + 80, columnWidth - 40, lineHeight);
+
+    wrapText("Requirements:", rightColumnX + 20, yStart + 40, columnWidth - 40, lineHeight);
+    wrapText(requirements || "", rightColumnX + 20, yStart + 80, columnWidth - 40, lineHeight);
+  }
+  
+  if (deckName) {
+    canvas.fillText(deckName, cardX + cardWidth / 2, cardY + cardHeight - 40);
+    if (typeof DeckBrowserState !== "undefined" && 
+        typeof Decks !== "undefined" &&
+        Decks[DeckBrowserState.deckIndex]) {
+      
+      var currentDeckNum = DeckBrowserState.deckIndex + 1;
+      var totalDecks = Decks.length;
+      var decksText = currentDeckNum + " of " + totalDecks;
+      
+      canvas.fillText(decksText, cardX + cardWidth / 2, cardY + cardHeight - 15);
+    }
+  }
+  
+  if (copies) {
+    canvas.textAlign = "right";
+    canvas.fillText("Qty: " + copies, cardX + cardWidth - 10, cardY + 40);
+  }
+  
+  if (DeckBrowserState && 
+      DeckBrowserState.deckIndex) {
+    
+    var currentCardNum = DeckBrowserState.cardIndex + 1;
+    var totalCards = Decks[DeckBrowserState.deckIndex].Cards.length;
+    var countText = currentCardNum + " of " + totalCards;
+
+    canvas.textAlign = "left";
+    canvas.fillText(countText, cardX + 10, cardY + 30);
+  }
 }
 
 function wrapText(text, x, y, maxWidth, lineHeight) {
   /*
     Writes the text variable to the canvas at the x and y
     coordinates, wrapping it at the maxWidth pixels with 
-    lineHeight line spaceing.
+    lineHeight line spacing. Supports \n for manual newlines.
   */
-  var words = text.split(' ');
-  var line = '';
+  var paragraphs = text.split('\n'); // split on newlines
 
-  for (var n = 0; n < words.length; n++) {
-    var testLine = line + words[n] + ' ';
-    var testWidth = canvas.measureText(testLine).width;
+  for (var p = 0; p < paragraphs.length; p++) {
+    var words = paragraphs[p].split(' ');
+    var line = '';
 
-    if (testWidth > maxWidth && n > 0) {
-      canvas.fillText(line.trim(), x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    } else {
-      line = testLine;
+    for (var n = 0; n < words.length; n++) {
+      var testLine = line + words[n] + ' ';
+      var testWidth = canvas.measureText(testLine).width;
+
+      if (testWidth > maxWidth && n > 0) {
+        canvas.fillText(line.trim(), x, y);
+        line = words[n] + ' ';
+        y += lineHeight;
+      } else {
+        line = testLine;
+      }
     }
+    canvas.fillText(line.trim(), x, y);
+    y += lineHeight;
   }
-  canvas.fillText(line.trim(), x, y);
+  
+  return y;
 }
 
 function toTitleCase(str) {
@@ -1762,5 +1943,6 @@ function showTimer(time) {
 }
 /* TODO:
   --Create BDSM-Sex, and Asphyx decks.
+  --Deck Browser known bug: If you enter and leave the browser, it skips the BDSM deck.
   --Make things pretty!  (Pictures/graphics/animation)
 */
