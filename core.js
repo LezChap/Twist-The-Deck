@@ -889,8 +889,14 @@ var DeckBrowserState;
 
 function startTease() {
   createCanvas();
-  displayCardToCanvas("Welcome to Twist the Deck!", "Click 'Start Game' to begin playing, or use the 'Deck Browser' to browse through all the cards in the available decks.");
+  
   registerTrigger({"type":"variableChange","valueChange":true,"variable":"startChoice"}, onStartTrigger);
+  displayStartMenu();
+}
+
+function displayStartMenu() {
+  displayCardToCanvas("Welcome to Twist the Deck!", "Click 'Start Game' to begin playing, or use the 'Deck Browser' to browse through all the cards in the available decks.");
+  
   var jsonObj = [
     {
     "Name":"Start Game",
@@ -1413,7 +1419,8 @@ function displayDeckBrowser() {
     //if there's a "valid" card, process it's text and display it.
 
     if (card.Secret) {
-      text = card.SecretText;
+      text += "Secret Text:\n"
+      text += card.SecretText;
       text += "\nContinue...\n";
     } 
     text += (DeckBrowserState.topPart === "Vagina" && card.TopVaginaText != null) ? card.TopVaginaText : card.TopPenisText;
@@ -1421,7 +1428,7 @@ function displayDeckBrowser() {
   }
   text = replacePlaceholders(text, "(Target)", "(Top)", card.Random);
   displayCardToCanvas(name, text, borderColor, deckName, acts, reqs, card.Copies);
-  showSideButtons(sideButObj, "startChoice");
+  showSideButtons(sideButObj, "startChoice", true);
   showChoiceButtons(mainButObj, "startChoice", true);
 
 }
@@ -1469,7 +1476,8 @@ function onStartTrigger(data) {
       break;
     case "Return":
       DeckBrowserState = null;
-      startTease();
+      clearSideButton();
+      displayStartMenu();
       return;
     default:
       
@@ -1697,7 +1705,9 @@ function displayCardToCanvas(name, text, borderColor, deckName, activities, requ
   }
   
   if (DeckBrowserState && 
-      DeckBrowserState.deckIndex) {
+      typeof DeckBrowserState.deckIndex === "number" &&
+      DeckBrowserState.deckIndex >= 0 &&
+      DeckBrowserState.deckIndex < Decks.length) {
     
     var currentCardNum = DeckBrowserState.cardIndex + 1;
     var totalCards = Decks[DeckBrowserState.deckIndex].Cards.length;
@@ -1928,6 +1938,19 @@ function showSideButtons(buttonObj, varName, clearBool) {
   callAction(jsonObj);
 }
 
+function clearSideButton() {
+  var jsonObj = {
+    "type":"updateTease",
+    "part":"input",
+    "inputType":"side-buttons",
+    "buttons":[
+      {"name":null,
+      "action":null}
+    ]
+  };
+  callAction(jsonObj);
+}
+
 function showTimer(time) {
   var jsonObj = {
     "type":"updateTease",
@@ -1943,6 +1966,5 @@ function showTimer(time) {
 }
 /* TODO:
   --Create BDSM-Sex, and Asphyx decks.
-  --Deck Browser known bug: If you enter and leave the browser, it skips the BDSM deck.
   --Make things pretty!  (Pictures/graphics/animation)
 */
